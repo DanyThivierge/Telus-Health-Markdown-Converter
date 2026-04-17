@@ -235,19 +235,6 @@ When drag-dropping files, two confirmation dialogs appeared due to event bubblin
 - **styles.css** — Custom stylesheet (replaces the 22KB github-markdown-css library)
 - **TELUS Health** — Logo and branding
 
-## Deployment & Sharing
-
-⚠️ **Google Drive doesn't work** — it opens HTML files in text-editor mode, not browser mode.
-
-**For sharing publicly, see [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)**
-
-Recommended options:
-- **GitHub Pages** (free, 5 min setup) ⭐ 
-- **Netlify** (free, 3 min setup)
-- **Vercel** (free, ultra-fast)
-
-All methods allow you to share a single link with your team/public.
-
 ## License & Usage
 
 Internal TELUS Health tool. All modifications should maintain:
