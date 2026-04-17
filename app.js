@@ -304,10 +304,10 @@ function applyLanguage() {
         el.textContent = el.getAttribute('data-' + currentLang);
         if (versionSpan) el.appendChild(versionSpan);
     });
-    // Swap logo — both .gif files exist locally
+    // Swap logo — both .png files exist locally
     const logoImg = document.querySelector('.logo-img');
     if (logoImg) {
-        logoImg.src = currentLang === 'fr' ? 'th_logo_fr.gif' : 'th_logo_en.gif';
+        logoImg.src = currentLang === 'fr' ? 'th_logo_fr.png' : 'th_logo_en.png';
         logoImg.alt = currentLang === 'fr' ? 'TELUS Santé' : 'TELUS Health';
     }
     // #11 — update <html lang> attribute
