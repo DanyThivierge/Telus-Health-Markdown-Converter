@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Markdown to HTML Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="th_logo_en.gif" alt="TELUS Health" class="logo-img">
+            </div>
+            <div class="logo-divider"></div>
+            <div class="app-title" data-en="Markdown Converter" data-fr="Convertisseur Markdown">Markdown Converter <span class="app-version">v1.0</span></div>
+        </div>
+        <div class="header-right">
+            <button class="lang-toggle" id="lang-toggle" onclick="toggleLanguage()">FR</button>
+            <a href="#" class="help-link" onclick="openHelp(event)" data-en="Help" data-fr="Aide">Help</a>
+        </div>
+    </div>
+
+    <div class="toolbar">
+        <button class="btn" onclick="pasteFromClipboard()" data-en="⬇ Paste from Clipboard" data-fr="⬇ Coller depuis le presse-papiers">⬇ Paste from Clipboard</button>
+        <button class="btn btn-success" onclick="copyHTML()" data-en="⬆ Copy Formatted Content" data-fr="⬆ Copier le contenu formaté">⬆ Copy Formatted Content</button>
+        <button class="btn" onclick="clearAll()" data-en="Clear" data-fr="Effacer">Clear</button>
+
+        <!-- More menu — pushed to the right -->
+        <div class="more-menu-wrapper" id="more-menu-wrapper" style="margin-left: auto;">
+            <button class="btn more-menu-btn" onclick="toggleMoreMenu()" id="more-menu-btn" title="More options">⋮ More</button>
+            <div class="more-menu-dropdown" id="more-menu-dropdown">
+                <div class="more-menu-section-label">File</div>
+                <div class="file-input-wrapper">
+                    <button class="more-menu-item" onclick="document.getElementById('file-input').click(); closeMoreMenu()" data-en="📂 Load File" data-fr="📂 Charger un fichier">📂 Load File</button>
+                    <input type="file" id="file-input" accept=".md,.markdown,.txt">
+                </div>
+                <button class="more-menu-item" onclick="downloadStandalone(); closeMoreMenu()" data-en="💾 Save as HTML" data-fr="💾 Enregistrer en HTML">💾 Save as HTML</button>
+                <button class="more-menu-item" onclick="saveAsPDF(); closeMoreMenu()" data-en="📄 Save as PDF" data-fr="📄 Enregistrer en PDF">📄 Save as PDF</button>
+                <button class="more-menu-item" onclick="printPreview(); closeMoreMenu()" data-en="🖨 Print / PDF" data-fr="🖨 Imprimer / PDF">🖨 Print / PDF</button>
+                <div class="more-menu-divider"></div>
+                <div class="more-menu-section-label">Formatting</div>
+                <button class="more-menu-item more-menu-toggle" id="heading-lines-toggle" onclick="toggleHeadingLines()" data-en="Heading Underlines" data-fr="Soulignement des titres">Heading Underlines</button>
+                <button class="more-menu-item more-menu-toggle" id="hr-lines-toggle" onclick="toggleHRLines()" data-en="Section Dividers" data-fr="Séparateurs de section">Section Dividers</button>
+                <div class="more-menu-divider"></div>
+                <div class="more-menu-section-label">Find</div>
+                <button class="more-menu-item" onclick="openFindBar(false); closeMoreMenu()" data-en="🔍 Find" data-fr="🔍 Chercher">🔍 Find</button>
+                <button class="more-menu-item" onclick="openFindBar(true); closeMoreMenu()" data-en="🔍 Find &amp; Replace" data-fr="🔍 Chercher et remplacer">🔍 Find &amp; Replace</button>
+                <div class="more-menu-divider"></div>
+                <div class="more-menu-section-label">Display</div>
+                <button class="more-menu-item more-menu-toggle" id="dark-mode-btn" onclick="toggleDarkMode()" data-en="🌙 Dark Mode" data-fr="🌙 Mode sombre">🌙 Dark Mode</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="main-container">
+        <div class="panel" id="left-panel">
+            <div class="panel-header" data-en="Markdown Input" data-fr="Entr&eacute;e Markdown">Markdown Input</div>
+            <div class="panel-content editor-wrapper" id="editor-wrapper">
+                <!-- Drag & drop overlay -->
+                <div class="drop-overlay" id="drop-overlay">
+                    <div class="drop-overlay-text" data-en="📄 Drop your Markdown file here" data-fr="📄 Déposez votre fichier Markdown ici">📄 Drop your Markdown file here</div>
+                </div>
+                <!-- Line numbers -->
+                <div class="line-numbers" id="line-numbers"><span>1</span></div>
+                <!-- Find highlight overlay — sits on top of textarea, pointer-events:none so clicks pass through -->
+                <div id="textarea-highlight-overlay"></div>
+                <textarea id="markdown-input" placeholder="Type or paste your Markdown here...
+
+# Example Heading
+## Subheading
+
+This is **bold** and this is *italic*.
+
+- List item 1
+- List item 2
+
+> This is a blockquote"></textarea>
+            </div>
+            <!-- Find & Replace bar -->
+            <div class="find-bar" id="find-bar">
+                <div class="find-bar-row">
+                    <input type="text" id="find-input" placeholder="Find..." class="find-input">
+                    <button class="find-btn find-btn-search" onclick="doFind()" title="Search">&#128269;</button>
+                    <span class="find-count" id="find-count"></span>
+                    <button class="find-btn" onclick="findPrev()" title="Previous">&#8593;</button>
+                    <button class="find-btn" onclick="findNext()" title="Next">&#8595;</button>
+                    <button class="find-btn find-btn-close" onclick="closeFindBar()" title="Close">&#10005;</button>
+                </div>
+                <div class="find-bar-row" id="replace-row" style="display:none;">
+                    <input type="text" id="replace-input" placeholder="Replace with..." class="find-input">
+                    <button class="find-btn" onclick="replaceCurrent()" data-en="Replace" data-fr="Remplacer">Replace</button>
+                    <button class="find-btn" onclick="replaceAll()" data-en="Replace All" data-fr="Tout remplacer">Replace All</button>
+                </div>
+            </div>
+            <!-- Status bar -->
+            <div class="status-bar" id="status-bar">
+                <span id="status-words">Words: 0</span>
+                <span class="status-sep">|</span>
+                <span id="status-chars">Characters: 0</span>
+                <span class="status-sep">|</span>
+                <span id="status-read">~0 min read</span>
+            </div>
+        </div>
+        <div class="resizer" id="resizer" title="Drag to resize">&#8942;</div>
+        <div class="panel" id="right-panel">
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('preview')" data-en="Preview" data-fr="Aper&ccedil;u">Preview</div>
+                <div class="tab" onclick="switchTab('html')" data-en="HTML Code" data-fr="Code HTML">HTML Code</div>
+            </div>
+            <div class="tab-content active" id="preview-tab">
+                <div id="html-preview" class="markdown-body"></div>
+            </div>
+            <div class="tab-content" id="html-tab">
+                <textarea id="html-code" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <!-- Help Modal -->
+    <div class="modal" id="help-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>How to Use the Markdown Converter</h2>
+                <button class="modal-close" onclick="closeHelp()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Getting Started</h3>
+                <ul>
+                    <li>Type or paste your Markdown text in the left panel</li>
+                    <li>The formatted preview appears automatically in the right panel</li>
+                    <li>Switch between Preview and HTML Code tabs to see the output</li>
+                </ul>
+                <h3>Toolbar</h3>
+                <ul>
+                    <li><strong>Paste from Clipboard:</strong> Load Markdown text directly from your clipboard</li>
+                    <li><strong>Copy Formatted Content:</strong> Copies the formatted content to your clipboard — then paste (<code>Ctrl+V</code>) into Google Docs, Word, or any rich-text editor</li>
+                    <li><strong>Clear:</strong> Remove all content from both panels</li>
+                </ul>
+                <h3>More Menu (⋮ More)</h3>
+                <ul>
+                    <li><strong>Load File:</strong> Open a .md, .markdown, or .txt file from your computer</li>
+                    <li><strong>Save as HTML:</strong> Download a complete, styled HTML file you can open in any browser, share, or print to PDF</li>
+                    <li><strong>Save as PDF:</strong> Opens a clean PDF-ready print window — select "Save as PDF" in the print dialog (<code>Ctrl+P</code>)</li>
+                    <li><strong>Print / PDF:</strong> Print the formatted preview or save it as a PDF using your browser's print dialog</li>
+                    <li><strong>Heading Underlines:</strong> Toggle underline borders on H1 and H2 headings</li>
+                    <li><strong>Section Dividers:</strong> Toggle visibility of horizontal rules (<code>---</code>)</li>
+                    <li><strong>Find:</strong> Open the Find bar to search within the editor</li>
+                    <li><strong>Find &amp; Replace:</strong> Open the Find &amp; Replace bar to search and substitute text</li>
+                    <li><strong>Dark Mode:</strong> Switch between light and dark theme</li>
+                </ul>
+                <h3>Keyboard Shortcuts</h3>
+                <div class="shortcut"><span><code>Ctrl+S</code> (or <code>Cmd+S</code> on Mac)</span><span>Save as HTML File</span></div>
+                <div class="shortcut"><span><code>Ctrl+P</code> (or <code>Cmd+P</code> on Mac)</span><span>Save as PDF</span></div>
+                <div class="shortcut"><span><code>Ctrl+K</code> (or <code>Cmd+K</code> on Mac)</span><span>Clear All</span></div>
+                <div class="shortcut"><span><code>Ctrl+F</code> (or <code>Cmd+F</code> on Mac)</span><span>Find in editor</span></div>
+                <div class="shortcut"><span><code>Ctrl+H</code> (or <code>Cmd+H</code> on Mac)</span><span>Find &amp; Replace</span></div>
+                <div class="shortcut"><span><code>Escape</code></span><span>Close Find bar</span></div>
+                <h3>Privacy &amp; Security</h3>
+                <ul>
+                    <li>All processing happens locally in your browser</li>
+                    <li>No data is sent to external servers</li>
+                    <li>Your documents remain private and secure</li>
+                    <li>Works completely offline</li>
+                </ul>
+
+                <h3>Markdown Cheat Sheet</h3>
+                <table class="cheat-table">
+                    <thead>
+                        <tr><th>What you type</th><th>What you get</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code># Heading 1</code></td><td>Large heading (H1)</td></tr>
+                        <tr><td><code>## Heading 2</code></td><td>Medium heading (H2)</td></tr>
+                        <tr><td><code>### Heading 3</code></td><td>Small heading (H3)</td></tr>
+                        <tr><td><code>**bold text**</code></td><td><strong>bold text</strong></td></tr>
+                        <tr><td><code>*italic text*</code></td><td><em>italic text</em></td></tr>
+                        <tr><td><code>~~strikethrough~~</code></td><td><s>strikethrough</s></td></tr>
+                        <tr><td><code>- item</code> or <code>* item</code></td><td>Bullet list item</td></tr>
+                        <tr><td><code>1. item</code></td><td>Numbered list item</td></tr>
+                        <tr><td><code>> quoted text</code></td><td>Blockquote</td></tr>
+                        <tr><td><code>`inline code`</code></td><td>Inline code highlight</td></tr>
+                        <tr><td><code>```</code> (triple backtick)</td><td>Code block</td></tr>
+                        <tr><td><code>[link text](url)</code></td><td>Hyperlink</td></tr>
+                        <tr><td><code>---</code></td><td>Horizontal rule / section divider</td></tr>
+                        <tr><td><code>| Col1 | Col2 |</code><br><code>|------|------|</code><br><code>| A    | B    |</code></td><td>Table</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print overlay — shown only when printing -->
+    <div id="print-area"></div>
+
+    <script src="marked.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

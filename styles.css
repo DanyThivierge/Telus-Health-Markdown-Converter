@@ -1,0 +1,1264 @@
+/* ============================================================
+   Markdown Converter - Application Styles
+   ============================================================ */
+
+/* === Reset & Base === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #ffffff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === Layout === */
+.container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* === Header === */
+.header {
+    background: white;
+    border-bottom: 3px solid #66cc00;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 35px;
+    width: auto;
+}
+
+.logo-divider {
+    width: 2px;
+    height: 30px;
+    background: #666;
+    margin: 0 15px;
+}
+
+.app-title {
+    font-size: 15px;
+    color: #333;
+    font-weight: normal;
+}
+
+.app-version {
+    font-size: 11px;
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+.header-right {
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.page-title {
+    font-size: 18px;
+    color: #4b0082;
+    font-weight: bold;
+}
+
+.help-link {
+    color: #4b0082;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.help-link:hover {
+    text-decoration: underline;
+}
+
+.lang-toggle {
+    background: white;
+    border: 1px solid #4b0082;
+    border-radius: 3px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #4b0082;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.lang-toggle:hover {
+    background: #4b0082;
+    color: white;
+}
+
+/* === Toolbar & Buttons === */
+.toolbar {
+    background: #f8f8f8;
+    padding: 15px 30px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.toolbar-label {
+    color: #333;
+    font-size: 14px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: 1px solid #4b0082;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: normal;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: white;
+    color: #4b0082;
+}
+
+.btn:hover {
+    background: #4b0082;
+    color: white;
+}
+
+.btn-primary {
+    background: #4b0082;
+    color: white;
+    border-color: #4b0082;
+}
+
+.btn-primary:hover {
+    background: #3a0066;
+    border-color: #3a0066;
+}
+
+.btn-success {
+    background: #66cc00;
+    color: white;
+    border-color: #66cc00;
+}
+
+.btn-success:hover {
+    background: #55aa00;
+    border-color: #55aa00;
+}
+
+.file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.file-input-wrapper input[type=file] {
+    position: absolute;
+    left: -9999px;
+}
+
+/* === Resizer / Drag Handle === */
+.resizer {
+    width: 8px;
+    min-width: 8px;
+    background: #e0e0e0;
+    cursor: col-resize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 18px;
+    letter-spacing: -2px;
+    user-select: none;
+    transition: background 0.2s;
+    margin: 15px 0;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.resizer:hover,
+.resizer.dragging {
+    background: #4b0082;
+    color: white;
+}
+
+/* === Panels === */
+.panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    margin: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.panel-header {
+    background: #4b0082;
+    padding: 12px 20px;
+    border-bottom: 2px solid #66cc00;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+}
+
+.panel-content {
+    flex: 1;
+    overflow: hidden;
+}
+
+#markdown-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 20px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+}
+
+#html-preview {
+    padding: 20px;
+}
+
+#html-code {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 20px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+    background: #f6f8fa;
+    color: #24292e;
+}
+
+/* === Markdown Preview Body === */
+/* Only the rules we actually use from github-markdown-css, plus our overrides */
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    color: #24292e;
+    background-color: white;
+}
+
+.markdown-body > :first-child { margin-top: 0 !important; }
+.markdown-body > :last-child  { margin-bottom: 0 !important; }
+
+.markdown-body p  { margin-top: 0; margin-bottom: 16px; }
+.markdown-body ul,
+.markdown-body ol { margin-top: 0; margin-bottom: 16px; padding-left: 2em; }
+.markdown-body li + li { margin-top: 0.25em; }
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3,
+.markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+}
+.markdown-body h1 { font-size: 2em; }
+.markdown-body h2 { font-size: 1.5em; }
+.markdown-body h3 { font-size: 1.25em; }
+.markdown-body h4 { font-size: 1em; }
+.markdown-body h5 { font-size: 0.875em; }
+.markdown-body h6 { font-size: 0.85em; color: #6a737d; }
+
+/* Heading underlines - hidden by default, toggled via JS */
+.markdown-body h1,
+.markdown-body h2 { border-bottom: none !important; }
+
+.markdown-body.show-heading-lines h1,
+.markdown-body.show-heading-lines h2 {
+    border-bottom: 1px solid #eaecef !important;
+    padding-bottom: 0.3em !important;
+}
+
+/* Horizontal rules - hidden by default, toggled via JS */
+.markdown-body hr { display: none !important; }
+
+.markdown-body.show-hr-lines hr {
+    display: block !important;
+    height: 0.25em !important;
+    padding: 0 !important;
+    margin: 24px 0 !important;
+    background-color: #e1e4e8 !important;
+    border: 0 !important;
+}
+
+.markdown-body a { color: #0366d6; text-decoration: none; }
+.markdown-body a:hover { text-decoration: underline; }
+
+.markdown-body strong { font-weight: 600; }
+
+.markdown-body code,
+.markdown-body tt {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.markdown-body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.markdown-body pre code {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    font-size: 100%;
+}
+
+/* === Tables === */
+.markdown-body table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 15px 0;
+    border: 1px solid #ddd !important;
+}
+
+.markdown-body table th {
+    background-color: #d3d3d3 !important;
+    color: #000000 !important;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-align: left;
+    border: 1px solid #999 !important;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.markdown-body table td {
+    padding: 6px 12px;
+    border: 1px solid #ddd !important;
+    vertical-align: top;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.markdown-body table tbody tr {
+    background-color: white !important;
+    transition: background-color 0.2s;
+}
+
+.markdown-body table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9 !important;
+}
+
+.markdown-body table tbody tr:hover {
+    background-color: #f0f0f0 !important;
+}
+
+/* Compact content inside table cells */
+.markdown-body table td p,
+.markdown-body table th p { margin: 0 !important; padding: 0 !important; }
+
+.markdown-body table td ul,
+.markdown-body table th ul,
+.markdown-body table td ol,
+.markdown-body table th ol { margin: 0 !important; padding-left: 20px !important; }
+
+.markdown-body table td li,
+.markdown-body table th li { margin: 0 !important; padding: 0 !important; }
+
+/* === Blockquote & Code Block overrides === */
+/* Blockquote tables - transparent background, no borders */
+.markdown-body table[data-blockquote],
+.markdown-body table[data-blockquote] tr,
+.markdown-body table[data-blockquote] tbody tr,
+.markdown-body table[data-blockquote] tbody tr:nth-child(odd),
+.markdown-body table[data-blockquote] tbody tr:nth-child(2n),
+.markdown-body table[data-blockquote] tbody tr:hover {
+    background-color: transparent !important;
+    transition: none !important;
+}
+
+.markdown-body table[data-blockquote] td {
+    border: none !important;
+}
+
+/* Code block tables - gray background, no borders */
+.markdown-body table[data-code-block],
+.markdown-body table[data-code-block] tr,
+.markdown-body table[data-code-block] tbody tr,
+.markdown-body table[data-code-block] tbody tr:nth-child(odd),
+.markdown-body table[data-code-block] tbody tr:nth-child(2n),
+.markdown-body table[data-code-block] tbody tr:hover {
+    background-color: #f6f8fa !important;
+    transition: none !important;
+}
+
+.markdown-body table[data-code-block] td {
+    border: none !important;
+    background-color: #f6f8fa !important;
+}
+
+/* === Notifications === */
+.notification {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    padding: 12px 24px;
+    background: #66cc00;
+    color: white;
+    border-radius: 3px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+    pointer-events: none;
+    border-left: 4px solid #4b0082;
+    white-space: nowrap;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* === Tabs === */
+.tabs {
+    display: flex;
+    background: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+}
+
+.tab {
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: normal;
+    color: #333;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    background: #e8e8e8;
+}
+
+.tab:hover {
+    color: #4b0082;
+    background: #f8f8f8;
+}
+
+.tab.active {
+    color: #4b0082;
+    border-bottom-color: #66cc00;
+    background: white;
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+    flex: 1;
+    overflow: auto;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* === Modals === */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 0;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    background: #4b0082;
+    color: white;
+    padding: 20px 30px;
+    border-bottom: 3px solid #66cc00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.modal-close:hover { color: #66cc00; }
+
+.modal-body {
+    padding: 30px;
+    line-height: 1.6;
+}
+
+.modal-body h3 {
+    color: #4b0082;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.modal-body h3:first-child { margin-top: 0; }
+
+.modal-body ul { margin: 10px 0; padding-left: 20px; }
+.modal-body li { margin: 5px 0; }
+
+.modal-body code {
+    background: #f6f8fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    color: #4b0082;
+}
+
+.modal-body .shortcut {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.modal-body .shortcut:last-child { border-bottom: none; }
+
+/* === Status Bar === */
+.status-bar {
+    background: #f0f0f0;
+    border-top: 1px solid #ddd;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: #888;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.status-sep {
+    color: #ccc;
+}
+
+/* === Find & Replace Bar === */
+.find-bar {
+    display: none;
+    background: #f0eaf8;
+    border-top: 2px solid #4b0082;
+    padding: 8px 12px;
+    flex-direction: column;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.find-bar.open {
+    display: flex;
+}
+
+.find-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.find-input {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px 8px;
+    font-size: 13px;
+    outline: none;
+    font-family: 'Consolas', 'Monaco', monospace;
+    min-width: 0;
+}
+
+.find-input:focus {
+    border-color: #4b0082;
+}
+
+.find-count {
+    font-size: 11px;
+    color: #888;
+    white-space: nowrap;
+    min-width: 50px;
+    text-align: right;
+}
+
+.find-btn {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #444;
+    white-space: nowrap;
+    transition: background 0.15s;
+}
+
+.find-btn:hover {
+    background: #4b0082;
+    color: white;
+    border-color: #4b0082;
+}
+
+.find-btn-close {
+    color: #999;
+    font-size: 11px;
+}
+
+/* All matches — yellow */
+mark.find-highlight {
+    background-color: #ffff00;
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+}
+
+/* Active / current match — orange so it stands out */
+mark.find-highlight-active {
+    background-color: #ff9900;
+    color: #000;
+    border-radius: 2px;
+    outline: 1px solid #cc6600;
+}
+
+/* === More Menu Dropdown === */
+.more-menu-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.more-menu-btn {
+    font-weight: bold;
+    letter-spacing: 0.03em;
+}
+
+.more-menu-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    left: auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    min-width: 200px;
+    z-index: 500;
+    padding: 6px 0;
+}
+
+.more-menu-dropdown.open {
+    display: block;
+}
+
+.more-menu-section-label {
+    padding: 6px 16px 2px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #999;
+    user-select: none;
+}
+
+.more-menu-divider {
+    height: 1px;
+    background: #eee;
+    margin: 6px 0;
+}
+
+.more-menu-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 9px 16px;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+}
+
+.more-menu-item:hover {
+    background: #f0eaf8;
+    color: #4b0082;
+}
+
+/* Toggle items show a checkmark when active */
+.more-menu-toggle::before {
+    content: '☐ ';
+    font-size: 12px;
+    color: #aaa;
+}
+
+.more-menu-toggle.active::before {
+    content: '☑ ';
+    color: #4b0082;
+}
+
+/* === Cheat Sheet Table (inside Help modal) === */
+.cheat-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.cheat-table th {
+    background: #f0eaf8;
+    color: #4b0082;
+    font-weight: bold;
+    padding: 6px 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.cheat-table td {
+    padding: 5px 10px;
+    border: 1px solid #eee;
+    vertical-align: top;
+}
+
+.cheat-table tbody tr:nth-child(odd) {
+    background: #fafafa;
+}
+
+.cheat-table code {
+    background: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #333;
+}
+
+/* === Print / PDF === */
+#print-area {
+    display: none;
+}
+
+@media print {
+    /* Hide everything except the print area */
+    body > *:not(#print-area) {
+        display: none !important;
+    }
+
+    #print-area {
+        display: block !important;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    #print-area .markdown-body {
+        max-width: 100%;
+        font-size: 12pt;
+    }
+}
+
+/* === Line Numbers === */
+.editor-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.line-numbers {
+    width: 42px;
+    min-width: 42px;
+    background: #f0f0f0;
+    border-right: 1px solid #ddd;
+    padding: 20px 6px 0 0;   /* no bottom padding — JS spacer handles it */
+    text-align: right;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #aaa;
+    user-select: none;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.line-numbers span {
+    /* height, display, align are set dynamically by JS to match wrap height */
+    box-sizing: border-box;
+    padding-right: 4px;
+    font-size: inherit;
+}
+
+#markdown-input {
+    flex: 1;
+    min-width: 0;
+}
+
+/* === Textarea Find Highlight Overlay === */
+/* Sits exactly on top of the textarea; pointer-events:none so all
+   mouse/keyboard input passes through to the real textarea below. */
+#textarea-highlight-overlay {
+    position: absolute;
+    top: 0;
+    /* left offset = width of the line-numbers gutter (42px) */
+    left: 42px;
+    /* right is NOT set here — width is controlled by JS to exactly match
+       the textarea's clientWidth (which excludes the scrollbar).
+       Without this, the overlay is wider than the textarea text area,
+       causing text to wrap at different column widths → misaligned highlights. */
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+    /* Font and padding MUST match #markdown-input exactly */
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 20px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+    color: transparent;           /* text is invisible — only highlights show */
+    background: transparent;
+    z-index: 5;                   /* above textarea (z=auto) but below drop overlay (z=100) */
+}
+
+#textarea-highlight-overlay mark.find-highlight {
+    background-color: rgba(255, 255, 0, 0.45);
+    color: transparent;
+    border-radius: 2px;
+}
+
+#textarea-highlight-overlay mark.find-highlight-active {
+    background-color: rgba(255, 153, 0, 0.55);
+    color: transparent;
+    border-radius: 2px;
+    outline: 1px solid rgba(204, 102, 0, 0.7);
+}
+
+/* Dark mode overlay highlights */
+body.dark-mode #textarea-highlight-overlay mark.find-highlight {
+    background-color: rgba(255, 255, 0, 0.25);
+}
+body.dark-mode #textarea-highlight-overlay mark.find-highlight-active {
+    background-color: rgba(255, 153, 0, 0.40);
+    outline-color: rgba(255, 153, 0, 0.6);
+}
+
+/* === Drag & Drop Overlay === */
+.drop-overlay {
+    display: none;
+    position: absolute;
+    inset: 0;
+    background: rgba(75, 0, 130, 0.12);
+    border: 3px dashed #4b0082;
+    border-radius: 6px;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.drop-overlay.active {
+    display: flex;
+}
+
+.drop-overlay-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4b0082;
+    background: rgba(255,255,255,0.9);
+    padding: 16px 32px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+/* === Dark Mode === */
+body.dark-mode {
+    background: #1e1e1e;
+    color: #d4d4d4;
+}
+
+body.dark-mode .header {
+    background: #252526;
+    border-bottom-color: #66cc00;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .app-title { color: #d4d4d4; }
+body.dark-mode .app-version { color: #777; }
+body.dark-mode .logo-divider { background: #555; }
+
+body.dark-mode .lang-toggle {
+    background: #252526;
+    border-color: #a080d0;
+    color: #a080d0;
+}
+body.dark-mode .lang-toggle:hover {
+    background: #4b0082;
+    color: white;
+}
+
+body.dark-mode .help-link { color: #a080d0; }
+
+body.dark-mode .toolbar {
+    background: #2d2d2d;
+    border-bottom-color: #444;
+}
+
+body.dark-mode .btn {
+    background: #2d2d2d;
+    border-color: #a080d0;
+    color: #a080d0;
+}
+body.dark-mode .btn:hover {
+    background: #4b0082;
+    color: white;
+    border-color: #4b0082;
+}
+
+body.dark-mode .btn-success {
+    background: #3a7000;
+    color: #d4ffa0;
+    border-color: #3a7000;
+}
+body.dark-mode .btn-success:hover {
+    background: #4a8a00;
+    border-color: #4a8a00;
+    color: white;
+}
+
+body.dark-mode .dark-mode-btn {
+    background: #3a3a3a;
+    border-color: #888;
+    color: #ffd700;
+}
+body.dark-mode .dark-mode-btn:hover {
+    background: #555;
+    color: #ffd700;
+}
+
+body.dark-mode .resizer {
+    background: #3a3a3a;
+    color: #666;
+}
+body.dark-mode .resizer:hover,
+body.dark-mode .resizer.dragging {
+    background: #4b0082;
+    color: white;
+}
+
+body.dark-mode .panel {
+    background: #252526;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .panel-header {
+    background: #4b0082;
+    border-bottom-color: #66cc00;
+}
+
+body.dark-mode .line-numbers {
+    background: #2a2a2a;
+    border-right-color: #444;
+    color: #555;
+}
+
+body.dark-mode #markdown-input {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    caret-color: #d4d4d4;
+}
+
+body.dark-mode #markdown-input::placeholder { color: #555; }
+
+body.dark-mode .tabs { background: #2d2d2d; border-bottom-color: #444; }
+
+body.dark-mode .tab {
+    background: #252526;
+    color: #999;
+}
+body.dark-mode .tab:hover {
+    background: #2d2d2d;
+    color: #a080d0;
+}
+body.dark-mode .tab.active {
+    background: #1e1e1e;
+    color: #a080d0;
+    border-bottom-color: #66cc00;
+}
+
+body.dark-mode #html-preview,
+body.dark-mode .markdown-body {
+    background: #1e1e1e;
+    color: #d4d4d4;
+}
+
+body.dark-mode .markdown-body h1,
+body.dark-mode .markdown-body h2,
+body.dark-mode .markdown-body h3,
+body.dark-mode .markdown-body h4,
+body.dark-mode .markdown-body h5,
+body.dark-mode .markdown-body h6 { color: #d4d4d4; }
+
+body.dark-mode .markdown-body a { color: #6db3f2; }
+
+body.dark-mode .markdown-body code,
+body.dark-mode .markdown-body tt {
+    background: #2d2d2d;
+    color: #ce9178;
+}
+
+body.dark-mode .markdown-body pre,
+body.dark-mode .markdown-body table[data-code-block] td {
+    background: #2d2d2d !important;
+}
+
+body.dark-mode .markdown-body table {
+    border-color: #555 !important;
+}
+
+body.dark-mode .markdown-body table th {
+    background: #3a3a5c !important;
+    color: #d4d4d4 !important;
+    border-color: #555 !important;
+}
+
+body.dark-mode .markdown-body table td {
+    border-color: #444 !important;
+}
+
+body.dark-mode .markdown-body table tbody tr {
+    background: #252526 !important;
+}
+
+body.dark-mode .markdown-body table tbody tr:nth-child(odd) {
+    background: #2a2a2a !important;
+}
+
+body.dark-mode .markdown-body table tbody tr:hover {
+    background: #333355 !important;
+}
+
+body.dark-mode .markdown-body table[data-blockquote] td {
+    background: #2a2a2a !important;
+    color: #aaa !important;
+}
+body.dark-mode .markdown-body table[data-blockquote] td:first-child {
+    background: #555 !important;
+}
+
+body.dark-mode #html-code {
+    background: #1e1e1e;
+    color: #9cdcfe;
+}
+
+body.dark-mode .status-bar {
+    background: #252526;
+    border-top-color: #444;
+    color: #666;
+}
+body.dark-mode .status-sep { color: #444; }
+
+body.dark-mode .find-bar {
+    background: #2d2a3a;
+    border-top-color: #4b0082;
+}
+
+body.dark-mode .find-input {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    border-color: #555;
+}
+body.dark-mode .find-input:focus { border-color: #a080d0; }
+body.dark-mode .find-count { color: #777; }
+
+body.dark-mode .find-btn {
+    background: #2d2d2d;
+    border-color: #555;
+    color: #aaa;
+}
+body.dark-mode .find-btn:hover {
+    background: #4b0082;
+    color: white;
+    border-color: #4b0082;
+}
+
+body.dark-mode .more-menu-dropdown {
+    background: #252526;
+    border-color: #555;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .more-menu-item {
+    color: #d4d4d4;
+}
+body.dark-mode .more-menu-item:hover {
+    background: #3a2a4a;
+    color: #a080d0;
+}
+
+body.dark-mode .more-menu-section-label { color: #666; }
+body.dark-mode .more-menu-divider { background: #444; }
+body.dark-mode .more-menu-toggle::before { color: #666; }
+body.dark-mode .more-menu-toggle.active::before { color: #a080d0; }
+
+body.dark-mode .modal-content {
+    background: #252526;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+body.dark-mode .modal-body { color: #d4d4d4; }
+
+body.dark-mode .modal-body h3 { color: #a080d0; }
+
+body.dark-mode .modal-body code {
+    background: #2d2d2d;
+    color: #ce9178;
+}
+
+body.dark-mode .modal-body .shortcut {
+    border-bottom-color: #333;
+}
+
+body.dark-mode .cheat-table th {
+    background: #3a2a4a;
+    color: #a080d0;
+    border-color: #444;
+}
+body.dark-mode .cheat-table td {
+    border-color: #333;
+    color: #d4d4d4;
+}
+body.dark-mode .cheat-table tbody tr:nth-child(odd) { background: #2a2a2a; }
+body.dark-mode .cheat-table code {
+    background: #333;
+    color: #ce9178;
+}
+
+body.dark-mode .drop-overlay {
+    background: rgba(75, 0, 130, 0.25);
+    border-color: #a080d0;
+}
+body.dark-mode .drop-overlay-text {
+    color: #a080d0;
+    background: rgba(30,30,30,0.95);
+}
+
+/* === Dark Mode Scrollbars (Chromium / Edge) === */
+body.dark-mode ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #4a4a4a;
+    border-radius: 5px;
+    border: 2px solid #1e1e1e;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #6a6a6a;
+}
+
+body.dark-mode ::-webkit-scrollbar-corner {
+    background: #1e1e1e;
+}
+
+/* Firefox dark scrollbar */
+body.dark-mode * {
+    scrollbar-color: #4a4a4a #1e1e1e;
+    scrollbar-width: thin;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+    .panel { margin: 10px; }
+    .toolbar { padding: 10px 15px; }
+    .header { padding: 15px 20px; }
+}
