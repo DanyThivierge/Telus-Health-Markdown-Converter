@@ -7,29 +7,11 @@
     <title>TELUS Health – Government Policy Dashboard</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f4f6f9;
-            color: #1a1a2e;
-            font-size: 13px;
-        }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f6f9; color: #1a1a2e; font-size: 13px; }
 
-        .header {
-            background: linear-gradient(135deg, #4B286D 0%, #6B3FA0 100%);
-            color: white;
-            padding: 14px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+        .header { background: linear-gradient(135deg, #4B286D 0%, #6B3FA0 100%); color: white; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
         .header-left { display: flex; align-items: center; gap: 12px; }
-        .telus-logo {
-            width: 36px; height: 36px;
-            background: white;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 900; color: #4B286D; font-size: 14px;
-        }
+        .telus-logo { width: 36px; height: 36px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #4B286D; font-size: 14px; }
         .header h1 { font-size: 17px; font-weight: 700; letter-spacing: 0.3px; }
         .header p { font-size: 11px; opacity: 0.85; margin-top: 2px; }
         .header-right { text-align: right; font-size: 11px; opacity: 0.85; }
@@ -37,27 +19,10 @@
 
         .main { display: grid; grid-template-columns: 1fr 280px; gap: 14px; padding: 14px 20px; }
 
-        .section-title {
-            font-size: 11px; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.8px; color: #4B286D; margin-bottom: 8px;
-            border-bottom: 2px solid #4B286D; padding-bottom: 4px;
-        }
+        .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #4B286D; margin-bottom: 8px; border-bottom: 2px solid #4B286D; padding-bottom: 4px; }
 
-        .scorecard-federal {
-            background: white;
-            border-radius: 10px;
-            padding: 14px 18px;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.07);
-            border-top: 4px solid #4B286D;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-        .scorecard-federal .region-label {
-            font-size: 11px; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.6px; color: #4B286D; min-width: 80px;
-        }
+        .scorecard-federal { background: white; border-radius: 10px; padding: 14px 18px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); border-top: 4px solid #4B286D; margin-bottom: 10px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+        .scorecard-federal .region-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #4B286D; min-width: 80px; }
         .scorecard-federal .big-num { font-size: 36px; font-weight: 800; color: #4B286D; line-height: 1; }
         .scorecard-federal .big-label { font-size: 10px; color: #777; margin-top: 2px; }
         .scorecard-federal .divider { width: 1px; height: 40px; background: #eee; }
@@ -69,25 +34,12 @@
         .val-committee { color: #B8860B; }
         .val-early { color: #2D6A4F; }
 
-        .scorecard-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-bottom: 14px;
-        }
-        .scorecard {
-            background: white;
-            border-radius: 10px;
-            padding: 12px 10px;
-            text-align: center;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.07);
-            border-top: 4px solid #888;
-        }
+        .scorecard-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
+        .scorecard { background: white; border-radius: 10px; padding: 12px 10px; text-align: center; box-shadow: 0 1px 6px rgba(0,0,0,0.07); border-top: 4px solid #888; }
         .scorecard.bc { border-top-color: #0077B6; }
         .scorecard.ab { border-top-color: #E07B00; }
         .scorecard.on { border-top-color: #D62828; }
         .scorecard.qc { border-top-color: #2D6A4F; }
-
         .scorecard .region { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; color: #555; }
         .scorecard .big-num { font-size: 28px; font-weight: 800; line-height: 1; color: #333; }
         .scorecard .sub { font-size: 10px; color: #777; margin-top: 3px; }
@@ -114,6 +66,8 @@
         .tag-urgent { background: #FFE5E5; color: #C0392B; }
         .tag-opportunity { background: #E8F5E9; color: #2D6A4F; }
         .tag-monitor { background: #FFF8E1; color: #B8860B; }
+        .read-more { font-size: 10px; color: #4B286D; text-decoration: none; font-weight: 600; white-space: nowrap; margin-left: 4px; }
+        .read-more:hover { text-decoration: underline; }
 
         .pipeline-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
         .pipeline-table th { background: #4B286D; color: white; padding: 8px 10px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; text-align: left; }
@@ -134,7 +88,6 @@
         .impact-low { background: #2D6A4F; }
 
         .sidebar { display: flex; flex-direction: column; gap: 12px; }
-
         .calendar-card { background: white; border-radius: 10px; padding: 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
         .cal-item { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; border-bottom: 1px solid #f5f5f5; }
         .cal-item:last-child { border-bottom: none; }
@@ -147,6 +100,7 @@
         .cb-urgent { background: #FFE5E5; color: #C0392B; }
         .cb-opportunity { background: #E8F5E9; color: #2D6A4F; }
         .cb-event { background: #E8F0FF; color: #2255CC; }
+        .cb-monitor { background: #FFF8E1; color: #B8860B; }
 
         .polling-card { background: white; border-radius: 10px; padding: 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
         .polling-card .card-title { font-weight: 700; font-size: 12px; margin-bottom: 10px; color: #333; }
@@ -154,68 +108,50 @@
         .poll-label { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 3px; }
         .poll-bar { height: 8px; background: #eee; border-radius: 4px; overflow: hidden; }
         .poll-fill { height: 100%; border-radius: 4px; }
-        .lib { background: #D62828; }
-        .con { background: #003F8A; }
-        .ndp { background: #F4A100; }
-        .bq { background: #0077B6; }
-        .pq { background: #1a5276; }
-        .grn { background: #2D6A4F; }
-        .caq { background: #E07B00; }
-        .pcq { background: #003F8A; }
-        .plq { background: #D62828; }
-        .neutral { background: #ccc; }
+        .lib { background: #D62828; } .con { background: #003F8A; } .ndp { background: #F4A100; }
+        .bq { background: #0077B6; } .pq { background: #1a5276; } .grn { background: #2D6A4F; }
+        .caq { background: #E07B00; } .plq { background: #D62828; } .neutral { background: #ccc; }
 
-        .footer { background: #4B286D; color: white; padding: 8px 20px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; opacity: 0.9; }
+        .footer { background: #4B286D; color: white; padding: 8px 20px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; }
 
         .tab-bar { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
         .tab-btn { padding: 5px 14px; border-radius: 20px; border: none; cursor: pointer; font-size: 11px; font-weight: 600; background: white; color: #555; box-shadow: 0 1px 4px rgba(0,0,0,0.1); transition: all 0.2s; }
         .tab-btn.active { background: #4B286D; color: white; }
-
         .view { display: none; }
         .view.active { display: block; }
 
         /* DATA ENTRY */
-        .entry-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
-        .entry-card { background: white; border-radius: 10px; padding: 14px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
-        .entry-card.full-width { grid-column: 1 / -1; }
-        .entry-card h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #4B286D; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 6px; }
+        .entry-section { background: white; border-radius: 10px; padding: 16px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 14px; }
+        .entry-section h3 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #4B286D; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid #eee; }
         .field-group { margin-bottom: 10px; }
         .field-group label { display: block; font-size: 10px; font-weight: 600; color: #666; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.4px; }
         .field-group input, .field-group textarea, .field-group select { width: 100%; padding: 7px 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 12px; font-family: inherit; background: #fafafa; transition: border-color 0.2s; resize: vertical; }
         .field-group input:focus, .field-group textarea:focus, .field-group select:focus { outline: none; border-color: #4B286D; background: white; }
-        .field-group textarea { min-height: 70px; }
-        .field-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+        .field-group textarea { min-height: 60px; }
+        .field-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+        .field-row-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
 
-        .bill-row { display: grid; grid-template-columns: 100px 80px 1fr 100px 80px 28px; gap: 6px; align-items: center; margin-bottom: 6px; }
-        .bill-row input, .bill-row select { padding: 5px 7px; border: 1px solid #ddd; border-radius: 5px; font-size: 11px; font-family: inherit; background: #fafafa; }
-        .bill-row input:focus, .bill-row select:focus { outline: none; border-color: #4B286D; background: white; }
+        .item-entry { border: 1px solid #eee; border-radius: 8px; padding: 10px; margin-bottom: 8px; background: #fafafa; }
+        .item-entry-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .item-entry-header span { font-size: 10px; font-weight: 700; color: #4B286D; text-transform: uppercase; }
+        .item-entry-grid { display: grid; grid-template-columns: 90px 100px 1fr; gap: 8px; margin-bottom: 6px; }
+        .item-entry-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .bill-entry-grid { display: grid; grid-template-columns: 100px 80px 1fr 100px 80px; gap: 8px; margin-bottom: 6px; }
+        .date-entry-grid { display: grid; grid-template-columns: 110px 1fr 120px 90px; gap: 8px; }
 
-        .remove-btn { background: #FFE5E5; color: #C0392B; border: none; border-radius: 4px; cursor: pointer; font-size: 13px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
-        .add-btn { background: #f4f0fa; color: #4B286D; border: 1px dashed #4B286D; border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 600; padding: 5px 12px; margin-top: 4px; transition: all 0.2s; }
+        .remove-btn { background: #FFE5E5; color: #C0392B; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 700; padding: 3px 8px; }
+        .remove-btn:hover { background: #C0392B; color: white; }
+        .add-btn { background: #f4f0fa; color: #4B286D; border: 1px dashed #4B286D; border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 600; padding: 6px 14px; margin-top: 4px; transition: all 0.2s; }
         .add-btn:hover { background: #4B286D; color: white; }
-
-        .date-row { display: grid; grid-template-columns: 90px 1fr 100px 80px 28px; gap: 6px; align-items: center; margin-bottom: 6px; }
-        .date-row input, .date-row select { padding: 5px 7px; border: 1px solid #ddd; border-radius: 5px; font-size: 11px; font-family: inherit; background: #fafafa; }
-        .date-row input:focus, .date-row select:focus { outline: none; border-color: #4B286D; background: white; }
-
-        .attn-row { display: grid; grid-template-columns: 80px 80px 1fr 90px 28px; gap: 6px; align-items: flex-start; margin-bottom: 6px; }
-        .attn-row select, .attn-row input, .attn-row textarea { padding: 5px 7px; border: 1px solid #ddd; border-radius: 5px; font-size: 11px; font-family: inherit; background: #fafafa; resize: none; }
-        .attn-row select:focus, .attn-row input:focus, .attn-row textarea:focus { outline: none; border-color: #4B286D; background: white; }
-        .attn-row textarea { min-height: 48px; }
 
         .save-bar { background: white; border-radius: 10px; padding: 12px 16px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
         .save-btn { background: #4B286D; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 700; padding: 8px 20px; transition: all 0.2s; }
         .save-btn:hover { background: #6B3FA0; }
-        .save-btn.secondary { background: white; color: #4B286D; border: 1px solid #4B286D; }
-        .save-btn.secondary:hover { background: #f4f0fa; }
-        .save-status { font-size: 11px; color: #888; }
-        .save-status.success { color: #2D6A4F; font-weight: 600; }
-        .save-status.error { color: #C0392B; font-weight: 600; }
+        .save-status { font-size: 11px; font-weight: 600; color: #2D6A4F; }
 
-        .col-headers { display: grid; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: #aaa; margin-bottom: 4px; }
-        .col-headers-bill { grid-template-columns: 100px 80px 1fr 100px 80px 28px; gap: 6px; }
-        .col-headers-date { grid-template-columns: 90px 1fr 100px 80px 28px; gap: 6px; }
-        .col-headers-attn { grid-template-columns: 80px 80px 1fr 90px 28px; gap: 6px; }
+        .week-selector { display: flex; align-items: center; gap: 10px; background: white; border-radius: 10px; padding: 10px 14px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 12px; flex-wrap: wrap; }
+        .week-selector label { font-size: 11px; font-weight: 700; color: #4B286D; }
+        .week-selector input[type="date"] { padding: 5px 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 12px; font-family: inherit; }
 
         .archive-entry { display: flex; align-items: center; gap: 10px; background: #f9f5ff; padding: 10px 12px; border-radius: 8px; border-left: 3px solid #4B286D; margin-bottom: 8px; cursor: pointer; transition: background 0.2s; }
         .archive-entry:hover { background: #f0e8ff; }
@@ -225,14 +161,12 @@
         .arc-current { background: #4B286D; color: white; }
         .arc-past { background: #eee; color: #888; }
 
-        .hint-text { font-size: 10px; color: #aaa; margin-top: 3px; font-style: italic; }
-
-        .week-selector { display: flex; align-items: center; gap: 10px; background: white; border-radius: 10px; padding: 10px 14px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); margin-bottom: 12px; flex-wrap: wrap; }
-        .week-selector label { font-size: 11px; font-weight: 700; color: #4B286D; }
-        .week-selector input[type="date"] { padding: 5px 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 12px; font-family: inherit; }
-        .week-selector input[type="date"]:focus { outline: none; border-color: #4B286D; }
-
-        .alert-banner { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 12px; color: #856404; display: flex; align-items: center; gap: 8px; }
+        .hint { font-size: 10px; color: #aaa; font-style: italic; margin-top: 3px; }
+        small.entry-label { font-size: 9px; color: #aaa; display: block; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.3px; }
+		.logo-img {
+    height: 35px;
+    width: auto;
+}
     </style>
 
     <script>
@@ -288,14 +222,16 @@
 
 <div class="header">
     <div class="header-left">
-        <div class="telus-logo">T</div>
+        <div class="logo">
+                <img src="telus_logo_dark.png" alt="TELUS Health" class="logo-img">
+            </div>
         <div>
             <h1>TELUS Health — Government Policy Dashboard</h1>
             <p>Weekly Intelligence Briefing · Government Relations</p>
         </div>
     </div>
     <div class="header-right">
-        <strong id="header-week">Week of April 6, 2026</strong>
+        <strong id="header-week">Week of April 17, 2026</strong>
         Federal · BC · AB · ON · QC
     </div>
 </div>
@@ -316,7 +252,6 @@
         <!-- OVERVIEW TAB -->
         <div id="tab-overview" class="view active">
             <div class="section-title">Policy Activity Scorecard</div>
-
             <div class="scorecard-federal">
                 <div><div class="region-label">🇨🇦 Federal</div></div>
                 <div>
@@ -434,7 +369,7 @@
                         <div class="poll-bar"><div class="poll-fill bq" style="width:9%"></div></div>
                     </div>
                     <div style="margin-top:8px; font-size:10px; color:#666; background:#f9f5ff; padding:6px 8px; border-radius:6px;">
-                        📌 Liberals secured <strong>majority government</strong> (174 seats, threshold 172) after winning all 3 by-elections + floor crossings. Carney maintains 13-point lead over Conservatives.
+                        📌 Liberals secured <strong>majority government</strong> (174 seats, threshold 172) after winning all 3 by-elections + floor crossings. Carney maintains 13-point lead. Physician Danielle Martin won University–Rosedale.
                     </div>
                 </div>
 
@@ -453,7 +388,7 @@
                         <div class="poll-bar"><div class="poll-fill caq" style="width:13%"></div></div>
                     </div>
                     <div style="margin-top:8px; font-size:10px; color:#666; background:#f0fff4; padding:6px 8px; border-radius:6px;">
-                        📌 <strong>Christine Fréchette elected CAQ leader (57.9%)</strong> — Quebec's 2nd female Premier. Parliament prorogued until May 5. Cabinet shuffle expected next week.
+                        📌 <strong>Christine Fréchette elected CAQ leader (57.9%)</strong> — Quebec's 2nd female Premier. Parliament prorogued until May 5. Cabinet shuffle expected; health minister change rumoured.
                     </div>
                 </div>
 
@@ -487,7 +422,7 @@
                         <div class="poll-bar"><div class="poll-fill ndp" style="width:36%"></div></div>
                     </div>
                     <div style="margin-top:8px; font-size:10px; color:#666; background:#fff8f0; padding:6px 8px; border-radius:6px;">
-                        📌 Smith maintains 2023 support levels. Nenshi's NDP dropped, including weakness in Edmonton and Calgary. Separation referendum petition under court-ordered stay.
+                        📌 Smith maintains 2023 support. Nenshi's NDP dropped, including weakness in Edmonton and Calgary. Separation referendum petition under court-ordered stay; final decision expected within a month.
                     </div>
                 </div>
 
@@ -529,107 +464,87 @@
 
             <div class="save-bar">
                 <button class="save-btn" onclick="saveAndPublish()">💾 Save & Publish Dashboard</button>
-                <button class="save-btn secondary" onclick="saveDraft()">Save Draft</button>
-                <button class="save-btn secondary" onclick="resetToCurrentData()">↩ Reset to Current</button>
+                <button class="save-btn" style="background:#888;" onclick="resetToCurrentData()">↩ Reset to Current</button>
                 <span class="save-status" id="save-status"></span>
             </div>
 
-            <div class="entry-grid">
-
-                <div class="entry-card full-width">
-                    <h3><span class="region-badge badge-federal">Federal</span> Bill Count by Stage</h3>
-                    <div style="display:grid; grid-template-columns: repeat(6, 1fr); gap:10px;">
-                        <div class="field-group"><label>Total Bills</label><input type="number" id="e-fed-total" value="7" min="0"></div>
-                        <div class="field-group"><label>Advanced</label><input type="number" id="e-fed-adv" value="2" min="0"></div>
-                        <div class="field-group"><label>Committee</label><input type="number" id="e-fed-cmte" value="2" min="0"></div>
-                        <div class="field-group"><label>Early Stage</label><input type="number" id="e-fed-early" value="3" min="0"></div>
-                        <div class="field-group"><label>High Impact</label><input type="number" id="e-fed-high" value="4" min="0"></div>
-                        <div class="field-group"><label>Med. Impact</label><input type="number" id="e-fed-med" value="3" min="0"></div>
+            <div class="entry-section">
+                <h3>📊 Scorecard Numbers</h3>
+                <div style="margin-bottom:10px;">
+                    <div style="font-size:10px; font-weight:700; color:#4B286D; margin-bottom:6px; text-transform:uppercase;">🇨🇦 Federal</div>
+                    <div class="field-row-6">
+                        <div class="field-group"><label>Total Bills</label><input type="number" id="e-fed-total" min="0"></div>
+                        <div class="field-group"><label>Advanced</label><input type="number" id="e-fed-adv" min="0"></div>
+                        <div class="field-group"><label>Committee</label><input type="number" id="e-fed-cmte" min="0"></div>
+                        <div class="field-group"><label>Early Stage</label><input type="number" id="e-fed-early" min="0"></div>
+                        <div class="field-group"><label>High Impact</label><input type="number" id="e-fed-high" min="0"></div>
+                        <div class="field-group"><label>Med. Impact</label><input type="number" id="e-fed-med" min="0"></div>
                     </div>
                 </div>
-
-                <div class="entry-card full-width">
-                    <h3>Provincial Bill Counts</h3>
-                    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:14px;">
-                        <div>
-                            <div style="font-size:10px; font-weight:700; color:#0077B6; margin-bottom:6px; text-transform:uppercase;">British Columbia</div>
-                            <div class="field-row">
-                                <div class="field-group"><label>Total</label><input type="number" id="e-bc-total" value="1" min="0"></div>
-                                <div class="field-group"><label>Advanced</label><input type="number" id="e-bc-adv" value="1" min="0"></div>
-                                <div class="field-group"><label>Committee</label><input type="number" id="e-bc-cmte" value="0" min="0"></div>
-                            </div>
+                <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:14px;">
+                    <div>
+                        <div style="font-size:10px; font-weight:700; color:#0077B6; margin-bottom:6px; text-transform:uppercase;">British Columbia</div>
+                        <div class="field-row-3">
+                            <div class="field-group"><label>Total</label><input type="number" id="e-bc-total" min="0"></div>
+                            <div class="field-group"><label>Advanced</label><input type="number" id="e-bc-adv" min="0"></div>
+                            <div class="field-group"><label>Committee</label><input type="number" id="e-bc-cmte" min="0"></div>
                         </div>
-                        <div>
-                            <div style="font-size:10px; font-weight:700; color:#E07B00; margin-bottom:6px; text-transform:uppercase;">Alberta</div>
-                            <div class="field-row">
-                                <div class="field-group"><label>Total</label><input type="number" id="e-ab-total" value="1" min="0"></div>
-                                <div class="field-group"><label>Advanced</label><input type="number" id="e-ab-adv" value="0" min="0"></div>
-                                <div class="field-group"><label>Committee</label><input type="number" id="e-ab-cmte" value="0" min="0"></div>
-                            </div>
+                    </div>
+                    <div>
+                        <div style="font-size:10px; font-weight:700; color:#E07B00; margin-bottom:6px; text-transform:uppercase;">Alberta</div>
+                        <div class="field-row-3">
+                            <div class="field-group"><label>Total</label><input type="number" id="e-ab-total" min="0"></div>
+                            <div class="field-group"><label>Advanced</label><input type="number" id="e-ab-adv" min="0"></div>
+                            <div class="field-group"><label>Committee</label><input type="number" id="e-ab-cmte" min="0"></div>
                         </div>
-                        <div>
-                            <div style="font-size:10px; font-weight:700; color:#D62828; margin-bottom:6px; text-transform:uppercase;">Ontario</div>
-                            <div class="field-row">
-                                <div class="field-group"><label>Total</label><input type="number" id="e-on-total" value="1" min="0"></div>
-                                <div class="field-group"><label>Advanced</label><input type="number" id="e-on-adv" value="0" min="0"></div>
-                                <div class="field-group"><label>Committee</label><input type="number" id="e-on-cmte" value="1" min="0"></div>
-                            </div>
+                    </div>
+                    <div>
+                        <div style="font-size:10px; font-weight:700; color:#D62828; margin-bottom:6px; text-transform:uppercase;">Ontario</div>
+                        <div class="field-row-3">
+                            <div class="field-group"><label>Total</label><input type="number" id="e-on-total" min="0"></div>
+                            <div class="field-group"><label>Advanced</label><input type="number" id="e-on-adv" min="0"></div>
+                            <div class="field-group"><label>Committee</label><input type="number" id="e-on-cmte" min="0"></div>
                         </div>
-                        <div>
-                            <div style="font-size:10px; font-weight:700; color:#2D6A4F; margin-bottom:6px; text-transform:uppercase;">Québec</div>
-                            <div class="field-row">
-                                <div class="field-group"><label>Total</label><input type="number" id="e-qc-total" value="4" min="0"></div>
-                                <div class="field-group"><label>Advanced</label><input type="number" id="e-qc-adv" value="2" min="0"></div>
-                                <div class="field-group"><label>Committee</label><input type="number" id="e-qc-cmte" value="2" min="0"></div>
-                            </div>
+                    </div>
+                    <div>
+                        <div style="font-size:10px; font-weight:700; color:#2D6A4F; margin-bottom:6px; text-transform:uppercase;">Québec</div>
+                        <div class="field-row-3">
+                            <div class="field-group"><label>Total</label><input type="number" id="e-qc-total" min="0"></div>
+                            <div class="field-group"><label>Advanced</label><input type="number" id="e-qc-adv" min="0"></div>
+                            <div class="field-group"><label>Committee</label><input type="number" id="e-qc-cmte" min="0"></div>
                         </div>
                     </div>
                 </div>
-
-                <div class="entry-card full-width">
-                    <h3>⚠️ What Needs Attention — Items</h3>
-                    <p class="hint-text" style="margin-bottom:10px;">Add items for each province. Keep titles short; paste full context in the description.</p>
-                    <div class="col-headers col-headers-attn">
-                        <span>Region</span><span>Type</span><span>Description (paste freely)</span><span>Short Title</span><span></span>
-                    </div>
-                    <div id="attn-rows"></div>
-                    <button class="add-btn" onclick="addAttnRow()">+ Add Item</button>
-                </div>
-
-                <div class="entry-card full-width">
-                    <h3>📋 Legislative Pipeline — Bills</h3>
-                    <p class="hint-text" style="margin-bottom:10px;">Add or update tracked bills.</p>
-                    <div class="col-headers col-headers-bill">
-                        <span>Bill Name</span><span>Jurisdiction</span><span>Subject / Description</span><span>Stage</span><span>Impact</span><span></span>
-                    </div>
-                    <div id="bill-rows"></div>
-                    <button class="add-btn" onclick="addBillRow()">+ Add Bill</button>
-                    <div class="field-group" style="margin-top:10px;">
-                        <label>Next Steps (one per line, matching bill order above)</label>
-                        <textarea id="e-bill-nextsteps" placeholder="e.g.&#10;Committee study; monitor for amendments&#10;Report stage; watch for healthcare data provisions&#10;..."></textarea>
-                        <div class="hint-text">Paste next steps in the same order as the bills above, one per line.</div>
-                    </div>
-                </div>
-
-                <div class="entry-card full-width">
-                    <h3>📅 Key Dates</h3>
-                    <p class="hint-text" style="margin-bottom:10px;">Add upcoming dates. Fill in date, title, location, and type.</p>
-                    <div class="col-headers col-headers-date">
-                        <span>Date</span><span>Title</span><span>Location / Context</span><span>Type</span><span></span>
-                    </div>
-                    <div id="date-rows"></div>
-                    <button class="add-btn" onclick="addDateRow()">+ Add Date</button>
-                </div>
-
-                <div class="entry-card full-width">
-                    <h3>📝 Additional Context / Editor Notes</h3>
-                    <div class="field-group">
-                        <label>Free-form notes (saved for reference, not shown on dashboard)</label>
-                        <textarea id="e-notes" style="min-height:100px;" placeholder="Paste any additional context, editor notes, or raw sections from the email here for reference..."></textarea>
-                    </div>
-                </div>
-
             </div>
+
+            <div class="entry-section">
+                <h3>⚠️ What Needs Attention — Items</h3>
+                <p class="hint" style="margin-bottom:10px;">Add items per province. Paste description freely. Add a URL for a "Read more..." link.</p>
+                <div id="attn-items-container"></div>
+                <button class="add-btn" onclick="addAttnItem()">+ Add Item</button>
+            </div>
+
+            <div class="entry-section">
+                <h3>📋 Legislative Pipeline — Bills</h3>
+                <p class="hint" style="margin-bottom:10px;">Add or update tracked bills. Add a URL for a "Read more..." link.</p>
+                <div id="bill-items-container"></div>
+                <button class="add-btn" onclick="addBillItem()">+ Add Bill</button>
+            </div>
+
+            <div class="entry-section">
+                <h3>📅 Key Dates</h3>
+                <p class="hint" style="margin-bottom:10px;">Add upcoming dates. Fill in date, title, location, and type.</p>
+                <div id="date-items-container"></div>
+                <button class="add-btn" onclick="addDateItem()">+ Add Date</button>
+            </div>
+
+            <div class="entry-section">
+                <h3>📝 Editor Notes (not shown on dashboard)</h3>
+                <div class="field-group">
+                    <textarea id="e-notes" style="min-height:80px;" placeholder="Paste any additional context, raw notes, or reference material here..."></textarea>
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -664,140 +579,126 @@
 
 <script>
 // =====================
-// DEFAULT DATA (April 17, 2026 edition)
+// DATA — Edit this section each week
 // =====================
-const APRIL17_DATA = {
-    weekLabel: "April 17, 2026",
-    weekDate: "2026-04-17",
-    scorecards: {
-        fed: { total: 7, adv: 2, cmte: 2, early: 3, high: 4, med: 3, low: 0 },
-        bc:  { total: 1, adv: 1, cmte: 0, early: 0 },
-        ab:  { total: 1, adv: 0, cmte: 0, early: 1 },
-        on:  { total: 1, adv: 0, cmte: 1, early: 0 },
-        qc:  { total: 4, adv: 2, cmte: 2, early: 0 }
+var DATA = {
+    current: {
+        weekLabel: "April 17, 2026",
+        weekDate: "2026-04-17",
+        scorecards: {
+            fed: { total: 7, adv: 2, cmte: 2, early: 3, high: 4, med: 3, low: 0 },
+            bc:  { total: 1, adv: 1, cmte: 0, early: 0 },
+            ab:  { total: 1, adv: 0, cmte: 0, early: 1 },
+            on:  { total: 1, adv: 0, cmte: 1, early: 0 },
+            qc:  { total: 4, adv: 2, cmte: 2, early: 0 }
+        },
+        attention: [
+            { region: "federal", type: "urgent", title: "PrescribeIT HESA Hearing (Apr 21)", text: "HESA Committee holds 3-hour meeting on cancelled PrescribeIT program. TELUS Health appears first, followed by Canada Health Infoway and government officials. Critical reputational and policy moment.", url: "https://www.ourcommons.ca/committees/en/HESA" },
+            { region: "federal", type: "urgent", title: "Liberal Majority Secured", text: "Liberals reached 174 seats (threshold: 172) after winning all 3 by-elections + floor crossings. Majority enables longer-term planning. Physician Danielle Martin won University–Rosedale for Liberals.", url: "https://www.elections.ca/content.aspx?section=res&dir=rep/off/44gedata&document=index&lang=e" },
+            { region: "federal", type: "urgent", title: "Bill S-5 (Interoperability) — SOCI Hearings", text: "Senate SOCI held two hearings. Witnesses broadly supported the bill while calling for stronger privacy safeguards, Indigenous data sovereignty, and vendor compliance. TELUS Health submitted written brief this week.", url: "https://www.parl.ca/legisinfo/en/bill/44-1/s-5" },
+            { region: "federal", type: "opportunity", title: "Spring Economic Update — Apr 28", text: "Government announced Spring Economic Update on April 28. Opportunity to monitor for health-related spending commitments and digital health investments.", url: "https://www.canada.ca/en/department-finance/news/2026/04/government-of-canada-to-release-spring-economic-update-on-april-28-2026.html" },
+            { region: "bc", type: "monitor", title: "DRIPA Pause Abandoned", text: "Eby pulled the plug on the DRIPA pause after caucus opposition and First Nations pushback. Changes delayed; no longer a confidence motion. BC NDP leads 44% vs BC Conservatives 40% (Léger, Apr 10).", url: "https://news.gov.bc.ca/releases" },
+            { region: "bc", type: "monitor", title: "BC Conservative Leadership Race", text: "Down to 5 candidates. Membership cutoff April 18; winner announced May 30. Fulmer gaining momentum. Significant endorsements for Elliott (Gordon Campbell), Black (James Moore), Milobar (Pamela Martin).", url: "https://www.bcconservatives.ca" },
+            { region: "ab", type: "urgent", title: "Bill 29 — Private Diagnostics", text: "New bill allows Albertans to pay privately for diagnostic tests (MRI, CT, bloodwork) without a doctor's referral. Critics warn of two-tier healthcare. NDP MP Johns pressed Health Minister on Canada Health Act compliance.", url: "https://www.assembly.ab.ca/assembly/bills/bill.aspx?Leg=31&Ses=2&Bill=29" },
+            { region: "ab", type: "monitor", title: "Separation Referendum — Court Stay", text: "Judge issued month-long stay preventing certification of separation petition after First Nations legal challenges. Signature collection continues until May 2. Final court decision expected within a month.", url: "https://www.cbc.ca/news/canada/calgary/alberta-separation-referendum-court-stay" },
+            { region: "on", type: "monitor", title: "Medical Residency Rule Reversed", text: "Ontario rescinded controversial rule requiring 2 years of Ontario high school for medical residency applicants, following legal challenges. Reversal may ease physician shortage pressures.", url: "https://www.ontario.ca/page/ministry-health" },
+            { region: "on", type: "opportunity", title: "WSIB Coverage for 29,000 Health Workers", text: "Ontario plans legislation extending WSIB coverage to ~29,000 health-care and support workers in privately operated retirement and group homes. Monitor for workforce implications.", url: "https://www.ontario.ca/page/workplace-safety-and-insurance-board" },
+            { region: "qc", type: "urgent", title: "New Premier: Christine Fréchette", text: "Fréchette elected CAQ leader (57.9%). Quebec's 2nd female Premier. Parliament prorogued until May 5. Cabinet shuffle expected next week — health minister change rumoured. Steep polling hill: PLQ 33%, PQ 32%, CAQ 13%.", url: "https://www.assnat.qc.ca/en/index.html" },
+            { region: "qc", type: "urgent", title: "Digital Health Record — Data Sovereignty Crisis", text: "Minister of Cybersecurity raised serious concerns about health data hosted by Epic Systems being accessible to U.S. authorities. Government exploring public-private digital sovereignty entity (CODE) with CGI. Potential postponement of DSN discussed.", url: "https://www.quebec.ca/en/government/policies-orientations/digital-health" }
+        ],
+        bills: [
+            { name: "Bill S-5", bill: "Federal", subject: "Health IT Interoperability & Data Blocking", stage: "committee", impact: "high", next: "SOCI committee hearings ongoing; TELUS Health brief submitted this week", url: "https://www.parl.ca/legisinfo/en/bill/44-1/s-5" },
+            { name: "Bill C-8", bill: "Federal", subject: "Cybersecurity / Critical Systems", stage: "advanced", impact: "high", next: "Now at 2nd reading in Senate (moved from SECU report stage)", url: "https://www.parl.ca/legisinfo/en/bill/44-1/c-8" },
+            { name: "Bill C-22", bill: "Federal", subject: "Lawful Access / Data Access", stage: "early", impact: "med", next: "2nd reading in House of Commons; monitor for health data amendments", url: "https://www.parl.ca/legisinfo/en/bill/44-1/c-22" },
+            { name: "Bill C-201", bill: "Federal", subject: "Canada Health Act — Mental Health Coverage", stage: "early", impact: "high", next: "Outside Order of Precedence; watch for prioritization", url: "https://www.parl.ca/legisinfo/en/bill/44-1/c-201" },
+            { name: "Bill C-239", bill: "Federal", subject: "Canada Health Act — Accountability Framework", stage: "advanced", impact: "med", next: "At 2nd reading in House; monitor for provincial accountability standards", url: "https://www.parl.ca/legisinfo/en/bill/44-1/c-239" },
+            { name: "Bill S-243", bill: "Federal", subject: "National Framework for Women's Health", stage: "committee", impact: "med", next: "Now at consideration in committee (moved from 2nd reading)", url: "https://www.parl.ca/legisinfo/en/bill/44-1/s-243" },
+            { name: "Bill C-12", bill: "Federal", subject: "Refugee & Migrant Health Access", stage: "early", impact: "high", next: "Growing criticism over risks to refugee and migrant health; monitor", url: "https://www.parl.ca/legisinfo/en/bill/44-1/c-12" },
+            { name: "Health Professions Act", bill: "BC", subject: "Health Professional Regulation Overhaul", stage: "advanced", impact: "med", next: "In effect; monitor implementation and physician response", url: "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/22022" },
+            { name: "Bill 29", bill: "AB", subject: "Private Diagnostics Without Referral", stage: "early", impact: "high", next: "Passed first reading; watch for Canada Health Act enforcement response", url: "https://www.assembly.ab.ca/assembly/bills/bill.aspx?Leg=31&Ses=2&Bill=29" },
+            { name: "ON Budget Bill", bill: "ON", subject: "Provincial Budget incl. Primary Care EMR", stage: "committee", impact: "high", next: "Standing Committee review; watch EMR procurement with interoperability criterion", url: "https://www.ontario.ca/page/2026-ontario-budget" },
+            { name: "Bill 19", bill: "QC", subject: "Medical Services Access / Doctor Remuneration", stage: "advanced", impact: "med", next: "Adopted; monitor FMOQ compliance toward 500K patient target by June 30", url: "https://www.assnat.qc.ca/en/travaux-parlementaires/projets-loi/projet-loi-19-43-1.html" },
+            { name: "Bill 15", bill: "QC", subject: "Professional Code Reform / Health Scope of Practice", stage: "advanced", impact: "med", next: "Adopted April 2; monitor regulatory implementation", url: "https://www.assnat.qc.ca/en/travaux-parlementaires/projets-loi/projet-loi-15-43-1.html" },
+            { name: "Bill 7", bill: "QC", subject: "Bureaucracy Reduction / INESSS+INSPQ Merger", stage: "committee", impact: "high", next: "Detailed study continues; watch INESSS/INSPQ merger and DSN implications", url: "https://www.assnat.qc.ca/en/travaux-parlementaires/projets-loi/projet-loi-7-43-1.html" },
+            { name: "Bill 23", bill: "QC", subject: "Involuntary Hospitalization / Mental Health", stage: "committee", impact: "med", next: "Detailed study continues", url: "https://www.assnat.qc.ca/en/travaux-parlementaires/projets-loi/projet-loi-23-43-1.html" }
+        ],
+        dates: [
+            { date: "2026-04-21", title: "HESA — PrescribeIT Hearing (TELUS Health appears)", location: "Federal · Health Committee", type: "urgent" },
+            { date: "2026-04-21", title: "Health Data for All of Us", location: "Ottawa, ON", type: "event" },
+            { date: "2026-04-21", title: "National Health-Tech Innovation Conference", location: "Kitchener, ON (Apr 21–22)", type: "event" },
+            { date: "2026-04-22", title: "CDA Symposium — Evidence & Engagement", location: "Ottawa, ON (Apr 22–24)", type: "event" },
+            { date: "2026-04-28", title: "Spring Economic Update", location: "Federal · Ottawa, ON", type: "opportunity" },
+            { date: "2026-04-29", title: "Healthcare Innovation Showcase", location: "Toronto, ON", type: "event" },
+            { date: "2026-04-30", title: "Health & Economic Prosperity — C.D. Howe Institute", location: "Toronto, ON", type: "event" },
+            { date: "2026-05-02", title: "AB Separation Petition Signature Deadline", location: "Alberta", type: "urgent" },
+            { date: "2026-05-04", title: "Ontario's Path Forward: Economy, Investment and Growth", location: "Toronto / Online", type: "event" },
+            { date: "2026-05-05", title: "QC National Assembly Returns (post-prorogation)", location: "Québec", type: "monitor" },
+            { date: "2026-05-07", title: "Mexico-Canada Trade Mission", location: "Federal", type: "event" },
+            { date: "2026-05-30", title: "BC Conservative Leadership Winner Announced", location: "British Columbia", type: "monitor" },
+            { date: "2026-06-14", title: "e-Health 2026 Conference", location: "Halifax, NS (Jun 14–16)", type: "event" },
+            { date: "2026-06-30", title: "QC: 500K Patient Attachment Target Deadline", location: "Québec · FMOQ", type: "urgent" }
+        ],
+        notes: "April 3-16, 2026 edition. Key developments: Liberal majority secured; PrescribeIT HESA hearing April 21 (TELUS Health appears); Fréchette elected QC Premier; Bill 29 introduced in Alberta; DSQ data sovereignty concerns in QC."
     },
-    attention: [
-        { region: "federal", type: "urgent",      title: "PrescribeIT HESA Hearing (Apr 21)", text: "HESA Committee holds 3-hour meeting on cancelled PrescribeIT program. TELUS Health appears first, followed by Canada Health Infoway and government officials. Critical reputational and policy moment." },
-        { region: "federal", type: "urgent",      title: "Liberal Majority Secured", text: "Liberals reached 174 seats (threshold: 172) after winning all 3 by-elections + floor crossings. Majority enables longer-term planning. Notably, physician Danielle Martin won University–Rosedale for Liberals." },
-        { region: "federal", type: "urgent",      title: "Bill S-5 (Interoperability) — SOCI Hearings", text: "Senate SOCI held two hearings. Witnesses broadly supported the bill while calling for stronger privacy safeguards, Indigenous data sovereignty, and vendor compliance. TELUS Health submitted written brief this week." },
-        { region: "federal", type: "opportunity", title: "Spring Economic Update — Apr 28", text: "Government announced Spring Economic Update on April 28. Opportunity to monitor for health-related spending commitments and digital health investments." },
-        { region: "bc",      type: "monitor",     title: "DRIPA Pause Abandoned", text: "Eby pulled the plug on the DRIPA pause after caucus opposition and First Nations pushback. Changes delayed; no longer a confidence motion. BC NDP leads 44% vs BC Conservatives 40% (Léger, Apr 10)." },
-        { region: "bc",      type: "monitor",     title: "BC Conservative Leadership Race", text: "Down to 5 candidates. Membership cutoff April 18; winner announced May 30. Fulmer gaining momentum. Significant endorsements for Elliott (Gordon Campbell), Black (James Moore), Milobar (Pamela Martin)." },
-        { region: "ab",      type: "urgent",      title: "Bill 29 — Private Diagnostics", text: "New bill allows Albertans to pay privately for diagnostic tests (MRI, CT, bloodwork) without a doctor's referral. Critics warn of two-tier healthcare. NDP MP Johns pressed Health Minister on Canada Health Act compliance." },
-        { region: "ab",      type: "monitor",     title: "Separation Referendum — Court Stay", text: "Judge issued month-long stay preventing certification of separation petition after First Nations legal challenges. Signature collection continues until May 2. Final court decision expected within a month." },
-        { region: "on",      type: "monitor",     title: "Medical Residency Rule Reversed", text: "Ontario rescinded controversial rule requiring 2 years of Ontario high school for medical residency applicants, following legal challenges. Reversal may ease physician shortage pressures." },
-        { region: "on",      type: "opportunity", title: "WSIB Coverage for 29,000 Health Workers", text: "Ontario plans legislation extending WSIB coverage to ~29,000 health-care and support workers in privately operated retirement and group homes. Monitor for workforce implications." },
-        { region: "qc",      type: "urgent",      title: "New Premier: Christine Fréchette", text: "Fréchette elected CAQ leader (57.9%). Quebec's 2nd female Premier. Parliament prorogued until May 5. Cabinet shuffle expected next week — health minister change rumoured. Steep polling hill: PLQ 33%, PQ 32%, CAQ 13%." },
-        { region: "qc",      type: "urgent",      title: "Digital Health Record — Data Sovereignty Crisis", text: "Minister of Cybersecurity raised serious concerns about health data hosted by Epic Systems being accessible to U.S. authorities. Government exploring public-private digital sovereignty entity (CODE) with CGI. Potential postponement of DSN discussed." }
-    ],
-    bills: [
-        { name: "Bill S-5",               bill: "Federal", subject: "Health IT Interoperability & Data Blocking",          stage: "committee", impact: "high", next: "SOCI committee hearings ongoing; TELUS Health brief submitted this week" },
-        { name: "Bill C-8",               bill: "Federal", subject: "Cybersecurity / Critical Systems",                    stage: "advanced",  impact: "high", next: "Now at 2nd reading in Senate (moved from SECU report stage)" },
-        { name: "Bill C-22",              bill: "Federal", subject: "Lawful Access / Data Access",                         stage: "early",     impact: "med",  next: "2nd reading in House of Commons; monitor for health data amendments" },
-        { name: "Bill C-201",             bill: "Federal", subject: "Canada Health Act — Mental Health Coverage",          stage: "early",     impact: "high", next: "Outside Order of Precedence; watch for prioritization" },
-        { name: "Bill C-239",             bill: "Federal", subject: "Canada Health Act — Accountability Framework",        stage: "advanced",  impact: "med",  next: "At 2nd reading in House; monitor for provincial accountability standards" },
-        { name: "Bill S-243",             bill: "Federal", subject: "National Framework for Women's Health",               stage: "committee", impact: "med",  next: "Now at consideration in committee (moved from 2nd reading)" },
-        { name: "Bill C-12",              bill: "Federal", subject: "Refugee & Migrant Health Access",                     stage: "early",     impact: "high", next: "Growing criticism over risks to refugee and migrant health; monitor" },
-        { name: "Health Professions Act", bill: "BC",      subject: "Health Professional Regulation Overhaul",             stage: "advanced",  impact: "med",  next: "In effect; monitor implementation and physician response" },
-        { name: "Bill 29",                bill: "AB",      subject: "Private Diagnostics Without Referral",                stage: "early",     impact: "high", next: "Passed first reading; watch for Canada Health Act enforcement response" },
-        { name: "ON Budget Bill",         bill: "ON",      subject: "Provincial Budget incl. Primary Care EMR",            stage: "committee", impact: "high", next: "Standing Committee review; watch EMR procurement with interoperability criterion" },
-        { name: "Bill 19",                bill: "QC",      subject: "Medical Services Access / Doctor Remuneration",       stage: "advanced",  impact: "med",  next: "Adopted; monitor FMOQ compliance toward 500K patient target by June 30" },
-        { name: "Bill 15",                bill: "QC",      subject: "Professional Code Reform / Health Scope of Practice", stage: "advanced",  impact: "med",  next: "Adopted April 2; monitor regulatory implementation" },
-        { name: "Bill 7",                 bill: "QC",      subject: "Bureaucracy Reduction / INESSS+INSPQ Merger",         stage: "committee", impact: "high", next: "Detailed study continues; watch INESSS/INSPQ merger and DSN implications" },
-        { name: "Bill 23",                bill: "QC",      subject: "Involuntary Hospitalization / Mental Health",          stage: "committee", impact: "med",  next: "Detailed study continues" }
-    ],
-    dates: [
-        { date: "2026-04-21", title: "HESA — PrescribeIT Hearing (TELUS Health appears)", location: "Federal · Health Committee", type: "urgent" },
-        { date: "2026-04-21", title: "Health Data for All of Us", location: "Ottawa, ON", type: "event" },
-        { date: "2026-04-21", title: "National Health-Tech Innovation Conference", location: "Kitchener, ON (Apr 21–22)", type: "event" },
-        { date: "2026-04-22", title: "CDA Symposium — Evidence & Engagement", location: "Ottawa, ON (Apr 22–24)", type: "event" },
-        { date: "2026-04-28", title: "Spring Economic Update", location: "Federal · Ottawa, ON", type: "opportunity" },
-        { date: "2026-04-29", title: "Healthcare Innovation Showcase", location: "Toronto, ON", type: "event" },
-        { date: "2026-04-30", title: "Health & Economic Prosperity — C.D. Howe Institute", location: "Toronto, ON", type: "event" },
-        { date: "2026-05-02", title: "AB Separation Petition Signature Deadline", location: "Alberta", type: "urgent" },
-        { date: "2026-05-04", title: "Ontario's Path Forward: Economy, Investment and Growth", location: "Toronto / Online", type: "event" },
-        { date: "2026-05-05", title: "QC National Assembly Returns (post-prorogation)", location: "Québec", type: "monitor" },
-        { date: "2026-05-07", title: "Mexico-Canada Trade Mission", location: "Federal", type: "event" },
-        { date: "2026-05-30", title: "BC Conservative Leadership Winner Announced", location: "British Columbia", type: "monitor" },
-        { date: "2026-06-14", title: "e-Health 2026 Conference", location: "Halifax, NS (Jun 14–16)", type: "event" },
-        { date: "2026-06-30", title: "QC: 500K Patient Attachment Target Deadline", location: "Québec · FMOQ", type: "urgent" }
-    ],
-    notes: "April 3-16, 2026 edition. Key developments: Liberal majority secured; PrescribeIT HESA hearing April 21 (TELUS Health appears); Fréchette elected QC Premier; Bill 29 introduced in Alberta; DSQ data sovereignty concerns in QC."
-};
-
-const APRIL6_DATA = {
-    weekLabel: "April 6, 2026",
-    weekDate: "2026-04-06",
-    scorecards: {
-        fed: { total: 6, adv: 2, cmte: 2, early: 2, high: 3, med: 3, low: 0 },
-        bc:  { total: 1, adv: 1, cmte: 0, early: 0 },
-        ab:  { total: 0, adv: 0, cmte: 0, early: 0 },
-        on:  { total: 1, adv: 0, cmte: 1, early: 0 },
-        qc:  { total: 4, adv: 2, cmte: 2, early: 0 }
-    },
-    attention: [
-        { region: "federal", type: "urgent",      title: "Bill S-5 (Interoperability)", text: "In Senate SOCI committee. Debate on privacy, cybersecurity, First Nations data sovereignty. Key for TELUS Health digital strategy." },
-        { region: "federal", type: "urgent",      title: "Grifols / HESA", text: "Plasma collection deaths; Health Canada imposed new license conditions. HESA ordered documents by April 10." },
-        { region: "federal", type: "opportunity", title: "Canadian Dental Care Plan", text: "Renewal season opens April 15. Opportunity for TELUS Health benefits/claims platforms." },
-        { region: "bc",      type: "monitor",     title: "Health Professions & Occupations Act", text: "Now in effect. Overhauls regulation of health professionals; critics warn of provincial overreach. Monitor impact on workforce." },
-        { region: "bc",      type: "opportunity", title: "600K+ newly attached patients", text: "500+ US healthcare professionals hired. Signals growing primary care infrastructure. Opportunity for TELUS Health platforms." },
-        { region: "ab",      type: "urgent",      title: "MHCare Drug Procurement Scandal", text: "AHS seeking $49M recovery. RCMP + Auditor-General investigating. Potential procurement risk signal for health tech vendors." },
-        { region: "ab",      type: "monitor",     title: "Separation Referendum", text: "Scheduled Oct 19. Political instability risk. NDP-UCP divide deepening. Monitor for regulatory/policy uncertainty." },
-        { region: "on",      type: "opportunity", title: "New Provincial Primary Care EMR System", text: "Budget includes funding with interoperability as a key criterion. Direct TELUS Health opportunity." },
-        { region: "on",      type: "monitor",     title: "Physician Services Agreement", text: "New 2024-28 agreement increases compensation, expands after-hours, targets universal primary care by 2029." },
-        { region: "qc",      type: "urgent",      title: "CAQ Leadership → New Premier (Apr 12)", text: "Fréchette vs. Drainville. New leader = new health minister likely. Deep policy uncertainty until cabinet formed." },
-        { region: "qc",      type: "opportunity", title: "New Primary Care Policy (CLSCs)", text: "All Quebecers affiliated to CLSC. 8 new IPS clinics, expanded \"Votre Santé\" platform. Opportunity for TELUS Health virtual care." },
-        { region: "qc",      type: "monitor",     title: "Digital Health Record (DSQ)", text: "Specialists ended boycott; negotiations resumed. Doctors cite inadequate software. Monitor for procurement/integration opportunities." }
-    ],
-    bills: [
-        { name: "Bill S-5",               bill: "Federal", subject: "Health IT Interoperability & Data Blocking",          stage: "committee", impact: "high", next: "Committee study; monitor for amendments" },
-        { name: "Bill C-8",               bill: "Federal", subject: "Cybersecurity / Critical Systems",                    stage: "committee", impact: "high", next: "Report stage; watch for healthcare data provisions" },
-        { name: "Bill C-22",              bill: "Federal", subject: "Lawful Access / Data Access",                         stage: "early",     impact: "med",  next: "Monitor for health data amendments" },
-        { name: "Bill C-201",             bill: "Federal", subject: "Canada Health Act — Mental Health Coverage",          stage: "early",     impact: "high", next: "Outside Order of Precedence; watch for prioritization" },
-        { name: "Bill C-239",             bill: "Federal", subject: "Canada Health Act — Accountability Framework",        stage: "early",     impact: "med",  next: "2nd reading in progress" },
-        { name: "Bill S-243",             bill: "Federal", subject: "National Framework for Women's Health",               stage: "early",     impact: "med",  next: "2nd reading in progress" },
-        { name: "Health Professions Act", bill: "BC",      subject: "Health Professional Regulation Overhaul",             stage: "advanced",  impact: "med",  next: "Monitor implementation; watch physician response" },
-        { name: "ON Budget Bill",         bill: "ON",      subject: "Provincial Budget incl. Primary Care EMR",            stage: "committee", impact: "high", next: "Standing Committee review; watch EMR procurement" },
-        { name: "Bill 19",                bill: "QC",      subject: "Medical Services Access / Doctor Remuneration",       stage: "advanced",  impact: "med",  next: "Implementation; monitor FMOQ compliance" },
-        { name: "Bill 15",                bill: "QC",      subject: "Professional Code Reform / Health Scope of Practice", stage: "advanced",  impact: "med",  next: "Monitor regulatory implementation" },
-        { name: "Bill 7",                 bill: "QC",      subject: "Bureaucracy Reduction / INESSS+INSPQ Merger",         stage: "committee", impact: "high", next: "Detailed study continues; watch INESSS/INSPQ merger" },
-        { name: "Bill 23",                bill: "QC",      subject: "Involuntary Hospitalization / Mental Health",          stage: "committee", impact: "med",  next: "Detailed study continues" }
-    ],
-    dates: [
-        { date: "2026-04-07", title: "AB Separation Petition Court Challenge", location: "Alberta", type: "urgent" },
-        { date: "2026-04-10", title: "HESA Deadline — Grifols/CBS Documents", location: "Federal · Health Committee", type: "urgent" },
-        { date: "2026-04-12", title: "CAQ Leadership → New QC Premier", location: "Québec", type: "urgent" },
-        { date: "2026-04-13", title: "House of Commons Returns", location: "Federal", type: "event" },
-        { date: "2026-04-14", title: "HESA Committee Meeting", location: "Federal · Health Committee", type: "event" },
-        { date: "2026-04-15", title: "Dental Care Plan Renewal Opens", location: "Federal", type: "opportunity" },
-        { date: "2026-04-21", title: "Health Data for All of Us", location: "Ottawa, ON", type: "event" },
-        { date: "2026-04-21", title: "National Health-Tech Innovation Conference", location: "Kitchener, ON (Apr 21–22)", type: "event" },
-        { date: "2026-04-22", title: "CDA Symposium — Evidence & Engagement", location: "Ottawa, ON (Apr 22–24)", type: "event" },
-        { date: "2026-04-29", title: "Healthcare Innovation Showcase", location: "Toronto, ON", type: "event" },
-        { date: "2026-06-14", title: "e-Health 2026 Conference", location: "Halifax, NS (Jun 14–16)", type: "event" }
-    ],
-    notes: ""
+    archives: [
+        {
+            weekLabel: "April 6, 2026",
+            weekDate: "2026-04-06",
+            scorecards: {
+                fed: { total: 6, adv: 2, cmte: 2, early: 2, high: 3, med: 3, low: 0 },
+                bc:  { total: 1, adv: 1, cmte: 0, early: 0 },
+                ab:  { total: 0, adv: 0, cmte: 0, early: 0 },
+                on:  { total: 1, adv: 0, cmte: 1, early: 0 },
+                qc:  { total: 4, adv: 2, cmte: 2, early: 0 }
+            },
+            attention: [
+                { region: "federal", type: "urgent", title: "Bill S-5 (Interoperability)", text: "In Senate SOCI committee. Debate on privacy, cybersecurity, First Nations data sovereignty. Key for TELUS Health digital strategy.", url: "https://www.parl.ca/legisinfo/en/bill/44-1/s-5" },
+                { region: "federal", type: "urgent", title: "Grifols / HESA", text: "Plasma collection deaths; Health Canada imposed new license conditions. HESA ordered documents by April 10.", url: "https://www.canada.ca/en/health-canada/news/2026/04/health-canada-imposes-new-conditions-on-grifols.html" },
+                { region: "federal", type: "opportunity", title: "Canadian Dental Care Plan", text: "Renewal season opens April 15. Opportunity for TELUS Health benefits/claims platforms.", url: "https://www.canada.ca/en/services/benefits/dental/dental-care-plan.html" },
+                { region: "bc", type: "monitor", title: "Health Professions & Occupations Act", text: "Now in effect. Overhauls regulation of health professionals; critics warn of provincial overreach. Monitor impact on workforce.", url: "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/22022" },
+                { region: "bc", type: "opportunity", title: "600K+ newly attached patients", text: "500+ US healthcare professionals hired. Signals growing primary care infrastructure. Opportunity for TELUS Health platforms.", url: "https://news.gov.bc.ca/releases" },
+                { region: "ab", type: "urgent", title: "MHCare Drug Procurement Scandal", text: "AHS seeking $49M recovery. RCMP + Auditor-General investigating. Potential procurement risk signal for health tech vendors.", url: "https://www.cbc.ca/news/canada/calgary/mhcare-alberta-health-services" },
+                { region: "ab", type: "monitor", title: "Separation Referendum", text: "Scheduled Oct 19. Political instability risk. NDP-UCP divide deepening. Monitor for regulatory/policy uncertainty.", url: "https://www.elections.ab.ca" },
+                { region: "on", type: "opportunity", title: "New Provincial Primary Care EMR System", text: "Budget includes funding with interoperability as a key criterion. Direct TELUS Health opportunity.", url: "https://www.ontario.ca/page/2026-ontario-budget" },
+                { region: "on", type: "monitor", title: "Physician Services Agreement", text: "New 2024-28 agreement increases compensation, expands after-hours, targets universal primary care by 2029.", url: "https://www.ontario.ca/page/ministry-health" },
+                { region: "qc", type: "urgent", title: "CAQ Leadership → New Premier (Apr 12)", text: "Fréchette vs. Drainville. New leader = new health minister likely. Deep policy uncertainty until cabinet formed.", url: "https://www.assnat.qc.ca/en/index.html" },
+                { region: "qc", type: "opportunity", title: "New Primary Care Policy (CLSCs)", text: "All Quebecers affiliated to CLSC. 8 new IPS clinics, expanded Votre Santé platform. Opportunity for TELUS Health virtual care.", url: "https://www.quebec.ca/en/health/finding-a-resource/clsc" },
+                { region: "qc", type: "monitor", title: "Digital Health Record (DSQ)", text: "Specialists ended boycott; negotiations resumed. Doctors cite inadequate software. Monitor for procurement/integration opportunities.", url: "https://www.quebec.ca/en/government/policies-orientations/digital-health" }
+            ],
+            bills: [
+                { name: "Bill S-5", bill: "Federal", subject: "Health IT Interoperability & Data Blocking", stage: "committee", impact: "high", next: "Committee study; monitor for amendments", url: "https://www.parl.ca/legisinfo/en/bill/44-1/s-5" },
+                { name: "Bill C-8", bill: "Federal", subject: "Cybersecurity / Critical Systems", stage: "committee", impact: "high", next: "Report stage; watch for healthcare data provisions", url: "https://www.parl.ca/legisinfo/en/bill/44-1/c-8" },
+                { name: "Bill C-22", bill: "Federal", subject: "Lawful Access / Data Access", stage: "early", impact: "med", next: "Monitor for health data amendments", url: "" },
+                { name: "Bill C-201", bill: "Federal", subject: "Canada Health Act — Mental Health Coverage", stage: "early", impact: "high", next: "Outside Order of Precedence; watch for prioritization", url: "" },
+                { name: "Bill C-239", bill: "Federal", subject: "Canada Health Act — Accountability Framework", stage: "early", impact: "med", next: "2nd reading in progress", url: "" },
+                { name: "Bill S-243", bill: "Federal", subject: "National Framework for Women's Health", stage: "early", impact: "med", next: "2nd reading in progress", url: "" },
+                { name: "Health Professions Act", bill: "BC", subject: "Health Professional Regulation Overhaul", stage: "advanced", impact: "med", next: "Monitor implementation; watch physician response", url: "" },
+                { name: "ON Budget Bill", bill: "ON", subject: "Provincial Budget incl. Primary Care EMR", stage: "committee", impact: "high", next: "Standing Committee review; watch EMR procurement", url: "" },
+                { name: "Bill 19", bill: "QC", subject: "Medical Services Access / Doctor Remuneration", stage: "advanced", impact: "med", next: "Implementation; monitor FMOQ compliance", url: "" },
+                { name: "Bill 15", bill: "QC", subject: "Professional Code Reform / Health Scope of Practice", stage: "advanced", impact: "med", next: "Monitor regulatory implementation", url: "" },
+                { name: "Bill 7", bill: "QC", subject: "Bureaucracy Reduction / INESSS+INSPQ Merger", stage: "committee", impact: "high", next: "Detailed study continues; watch INESSS/INSPQ merger", url: "" },
+                { name: "Bill 23", bill: "QC", subject: "Involuntary Hospitalization / Mental Health", stage: "committee", impact: "med", next: "Detailed study continues", url: "" }
+            ],
+            dates: [],
+            notes: ""
+        }
+    ]
 };
 
 // =====================
-// STATE
+// CONSTANTS
 // =====================
-let currentData = JSON.parse(JSON.stringify(APRIL17_DATA));
-let archives = [JSON.parse(JSON.stringify(APRIL6_DATA))];
+var REGION_ORDER = ['federal','bc','ab','on','qc'];
+var REGION_LABELS = { federal:'Federal', bc:'British Columbia', ab:'Alberta', on:'Ontario', qc:'Québec' };
+var BADGE_CLASS = { federal:'badge-federal', bc:'badge-bc', ab:'badge-ab', on:'badge-on', qc:'badge-qc' };
+var TYPE_EMOJI = { urgent:'🔴', monitor:'🟡', opportunity:'🟢' };
+var TYPE_TAG = { urgent:'tag-urgent', monitor:'tag-monitor', opportunity:'tag-opportunity' };
+var TYPE_LABEL = { urgent:'Urgent', monitor:'Monitor', opportunity:'Opportunity' };
 
 // =====================
 // INIT
 // =====================
-async function init() {
-    try {
-        const saved = await window.db.get('telus_gov_dashboard_current');
-        if (saved && saved.weekLabel) currentData = saved;
-    } catch(e) {}
-    try {
-        const arc = await window.db.get('telus_gov_dashboard_archives');
-        if (arc && arc.list && arc.list.length > 0) archives = arc.list;
-    } catch(e) {}
-
+function init() {
     renderAll();
     populateEntryForm();
 }
@@ -806,285 +707,281 @@ async function init() {
 // RENDER
 // =====================
 function renderAll() {
-    renderHeader();
-    renderScorecards();
-    renderAttention();
-    renderPipeline();
-    renderSidebarDates();
+    var d = DATA.current;
+    document.getElementById('header-week').textContent = 'Week of ' + d.weekLabel;
+    document.getElementById('footer-week').textContent = 'Week of ' + d.weekLabel;
+    renderScorecards(d.scorecards);
+    renderAttention(d.attention);
+    renderPipeline(d.bills);
+    renderSidebarDates(d.dates);
     renderArchive();
 }
 
-function renderHeader() {
-    const label = "Week of " + currentData.weekLabel;
-    document.getElementById('header-week').textContent = label;
-    document.getElementById('footer-week').textContent = "Week of " + currentData.weekLabel;
-}
-
-function renderScorecards() {
-    const s = currentData.scorecards;
-    const set = (id, val) => { const el = document.getElementById(id); if(el) el.textContent = val ?? 0; };
+function renderScorecards(s) {
+    function set(id, val) { var el = document.getElementById(id); if(el) el.textContent = (val !== undefined && val !== null) ? val : 0; }
     set('sc-fed-total', s.fed.total); set('sc-fed-adv', s.fed.adv); set('sc-fed-cmte', s.fed.cmte);
     set('sc-fed-early', s.fed.early); set('sc-fed-high', s.fed.high); set('sc-fed-med', s.fed.med);
-    set('sc-bc-total', s.bc.total); set('sc-bc-adv', s.bc.adv); set('sc-bc-cmte', s.bc.cmte); set('sc-bc-early', s.bc.early ?? 0);
-    set('sc-ab-total', s.ab.total); set('sc-ab-adv', s.ab.adv); set('sc-ab-cmte', s.ab.cmte); set('sc-ab-early', s.ab.early ?? 0);
-    set('sc-on-total', s.on.total); set('sc-on-adv', s.on.adv); set('sc-on-cmte', s.on.cmte); set('sc-on-early', s.on.early ?? 0);
-    set('sc-qc-total', s.qc.total); set('sc-qc-adv', s.qc.adv); set('sc-qc-cmte', s.qc.cmte); set('sc-qc-early', s.qc.early ?? 0);
+    set('sc-bc-total', s.bc.total); set('sc-bc-adv', s.bc.adv); set('sc-bc-cmte', s.bc.cmte); set('sc-bc-early', s.bc.early || 0);
+    set('sc-ab-total', s.ab.total); set('sc-ab-adv', s.ab.adv); set('sc-ab-cmte', s.ab.cmte); set('sc-ab-early', s.ab.early || 0);
+    set('sc-on-total', s.on.total); set('sc-on-adv', s.on.adv); set('sc-on-cmte', s.on.cmte); set('sc-on-early', s.on.early || 0);
+    set('sc-qc-total', s.qc.total); set('sc-qc-adv', s.qc.adv); set('sc-qc-cmte', s.qc.cmte); set('sc-qc-early', s.qc.early || 0);
 }
 
-const REGION_ORDER = ['federal','bc','ab','on','qc'];
-const REGION_LABELS = { federal:'Federal', bc:'British Columbia', ab:'Alberta', on:'Ontario', qc:'Québec' };
-const BADGE_CLASS = { federal:'badge-federal', bc:'badge-bc', ab:'badge-ab', on:'badge-on', qc:'badge-qc' };
-const TYPE_EMOJI = { urgent:'🔴', monitor:'🟡', opportunity:'🟢' };
-const TYPE_TAG = { urgent:'tag-urgent', monitor:'tag-monitor', opportunity:'tag-opportunity' };
-const TYPE_LABEL = { urgent:'Urgent', monitor:'Monitor', opportunity:'Opportunity' };
-
-function renderAttention() {
-    const grid = document.getElementById('attention-grid');
+function renderAttention(items) {
+    var grid = document.getElementById('attention-grid');
     if (!grid) return;
-    const grouped = {};
-    REGION_ORDER.forEach(r => grouped[r] = []);
-    (currentData.attention || []).forEach(item => { if (grouped[item.region]) grouped[item.region].push(item); });
+    var grouped = {};
+    REGION_ORDER.forEach(function(r) { grouped[r] = []; });
+    (items || []).forEach(function(item) { if (grouped[item.region]) grouped[item.region].push(item); });
 
-    let html = '';
-    REGION_ORDER.forEach(region => {
-        const items = grouped[region];
-        if (!items.length) return;
-        const isQC = region === 'qc';
-        const style = isQC ? ' style="grid-column: 1 / -1;"' : '';
-        const cols = isQC ? Math.min(items.length, 3) : 1;
-        const innerStyle = isQC ? ` style="display:grid; grid-template-columns: repeat(${cols}, 1fr); gap:0;"` : '';
+    var html = '';
+    REGION_ORDER.forEach(function(region) {
+        var regionItems = grouped[region];
+        if (!regionItems.length) return;
+        var isQC = region === 'qc';
+        var style = isQC ? ' style="grid-column: 1 / -1;"' : '';
+        var cols = isQC ? Math.min(regionItems.length, 3) : 1;
+        var innerStyle = isQC ? ' style="display:grid; grid-template-columns: repeat(' + cols + ', 1fr); gap:0;"' : '';
 
-        html += `<div class="attention-card"${style}>
-            <div class="card-header">
-                <span class="region-badge ${BADGE_CLASS[region]}">${REGION_LABELS[region]}</span>
-                <span style="font-size:11px; color:#888;">${items.length} item${items.length !== 1 ? 's' : ''}</span>
-            </div>
-            <div${innerStyle}>`;
+        html += '<div class="attention-card"' + style + '>';
+        html += '<div class="card-header">';
+        html += '<span class="region-badge ' + BADGE_CLASS[region] + '">' + REGION_LABELS[region] + '</span>';
+        html += '<span style="font-size:11px; color:#888;">' + regionItems.length + ' item' + (regionItems.length !== 1 ? 's' : '') + '</span>';
+        html += '</div>';
+        html += '<div' + innerStyle + '>';
 
-        items.forEach((item, i) => {
-            let borderStyle = '';
-            if (isQC && i < items.length - 1) borderStyle = 'padding-right:12px; border-right:1px solid #f0f0f0; border-bottom:none;';
-            else if (isQC) borderStyle = 'padding-left:12px; border-bottom:none;';
-            if (isQC && i > 0 && i < items.length - 1) borderStyle = 'padding: 5px 12px; border-right:1px solid #f0f0f0; border-bottom:none;';
-            const s = borderStyle ? ` style="${borderStyle}"` : '';
-            html += `<div class="attention-item"${s}>
-                <span class="flag">${TYPE_EMOJI[item.type] || '🟡'}</span>
-                <span class="item-text"><strong>${escHtml(item.title)}</strong> — ${escHtml(item.text)}</span>
-                <span class="item-tag ${TYPE_TAG[item.type] || 'tag-monitor'}">${TYPE_LABEL[item.type] || 'Monitor'}</span>
-            </div>`;
+        regionItems.forEach(function(item, i) {
+            var borderStyle = '';
+            if (isQC && regionItems.length > 1) {
+                if (i === 0) borderStyle = 'padding-right:12px; border-right:1px solid #f0f0f0; border-bottom:none;';
+                else if (i === regionItems.length - 1) borderStyle = 'padding-left:12px; border-bottom:none;';
+                else borderStyle = 'padding: 5px 12px; border-right:1px solid #f0f0f0; border-bottom:none;';
+            } else if (isQC) {
+                borderStyle = 'border-bottom:none;';
+            }
+            var s = borderStyle ? ' style="' + borderStyle + '"' : '';
+            var readMore = item.url ? ' <a href="' + esc(item.url) + '" target="_blank" rel="noopener noreferrer" class="read-more">(Read more...)</a>' : '';
+            html += '<div class="attention-item"' + s + '>';
+            html += '<span class="flag">' + (TYPE_EMOJI[item.type] || '🟡') + '</span>';
+            html += '<span class="item-text"><strong>' + esc(item.title) + '</strong> — ' + esc(item.text) + readMore + '</span>';
+            html += '<span class="item-tag ' + (TYPE_TAG[item.type] || 'tag-monitor') + '">' + (TYPE_LABEL[item.type] || 'Monitor') + '</span>';
+            html += '</div>';
         });
 
-        html += `</div></div>`;
+        html += '</div></div>';
     });
 
     grid.innerHTML = html || '<p style="color:#aaa; font-size:12px; padding:10px;">No attention items added yet.</p>';
 }
 
-function renderPipeline() {
-    const tbody = document.getElementById('pipeline-tbody');
+function renderPipeline(bills) {
+    var tbody = document.getElementById('pipeline-tbody');
     if (!tbody) return;
-    const bills = currentData.bills || [];
-    let html = '';
-    bills.forEach((b, i) => {
-        const shaded = i % 2 === 1 ? ' class="row-shaded"' : '';
-        const stagePill = b.stage === 'advanced' ? 'stage-advanced' : b.stage === 'committee' ? 'stage-committee' : 'stage-early';
-        const stageLabel = b.stage === 'advanced' ? 'Advanced' : b.stage === 'committee' ? 'Committee' : 'Early Stage';
-        const impactDot = b.impact === 'high' ? 'impact-high' : b.impact === 'med' ? 'impact-med' : 'impact-low';
-        const impactLabel = b.impact === 'high' ? 'High' : b.impact === 'med' ? 'Medium' : 'Low';
-        const jur = b.bill || 'Federal';
-        const badgeClass = jur === 'BC' ? 'badge-bc' : jur === 'AB' ? 'badge-ab' : jur === 'ON' ? 'badge-on' : jur === 'QC' ? 'badge-qc' : 'badge-federal';
-        html += `<tr${shaded}>
-            <td><strong>${escHtml(b.name)}</strong></td>
-            <td><span class="region-badge ${badgeClass}">${escHtml(jur)}</span></td>
-            <td>${escHtml(b.subject)}</td>
-            <td><span class="stage-pill ${stagePill}">${stageLabel}</span></td>
-            <td><span class="impact-dot ${impactDot}"></span><strong>${impactLabel}</strong></td>
-            <td>${escHtml(b.next || '')}</td>
-        </tr>`;
+    var html = '';
+    (bills || []).forEach(function(b, i) {
+        var shaded = i % 2 === 1 ? ' class="row-shaded"' : '';
+        var stagePill = b.stage === 'advanced' ? 'stage-advanced' : b.stage === 'committee' ? 'stage-committee' : 'stage-early';
+        var stageLabel = b.stage === 'advanced' ? 'Advanced' : b.stage === 'committee' ? 'Committee' : 'Early Stage';
+        var impactDot = b.impact === 'high' ? 'impact-high' : b.impact === 'med' ? 'impact-med' : 'impact-low';
+        var impactLabel = b.impact === 'high' ? 'High' : b.impact === 'med' ? 'Medium' : 'Low';
+        var jur = b.bill || 'Federal';
+        var badgeClass = jur === 'BC' ? 'badge-bc' : jur === 'AB' ? 'badge-ab' : jur === 'ON' ? 'badge-on' : jur === 'QC' ? 'badge-qc' : 'badge-federal';
+        var readMore = b.url ? ' <a href="' + esc(b.url) + '" target="_blank" rel="noopener noreferrer" class="read-more">(Read more...)</a>' : '';
+        html += '<tr' + shaded + '>';
+        html += '<td><strong>' + esc(b.name) + '</strong></td>';
+        html += '<td><span class="region-badge ' + badgeClass + '">' + esc(jur) + '</span></td>';
+        html += '<td>' + esc(b.subject) + readMore + '</td>';
+        html += '<td><span class="stage-pill ' + stagePill + '">' + stageLabel + '</span></td>';
+        html += '<td><span class="impact-dot ' + impactDot + '"></span><strong>' + impactLabel + '</strong></td>';
+        html += '<td>' + esc(b.next || '') + '</td>';
+        html += '</tr>';
     });
     tbody.innerHTML = html || '<tr><td colspan="6" style="color:#aaa; text-align:center; padding:20px;">No bills added yet.</td></tr>';
 }
 
-function renderSidebarDates() {
-    const container = document.getElementById('sidebar-dates');
+function renderSidebarDates(dates) {
+    var container = document.getElementById('sidebar-dates');
     if (!container) return;
-    const dates = (currentData.dates || []).slice().sort((a,b) => a.date.localeCompare(b.date));
-    let html = '';
-    dates.forEach(d => {
-        const dt = new Date(d.date + 'T00:00:00');
-        const day = dt.getDate();
-        const month = dt.toLocaleString('en-CA', { month: 'short' });
-        const badgeClass = d.type === 'urgent' ? 'cb-urgent' : d.type === 'opportunity' ? 'cb-opportunity' : d.type === 'monitor' ? 'cb-urgent' : 'cb-event';
-        const badgeLabel = d.type === 'urgent' ? 'Urgent' : d.type === 'opportunity' ? 'Opportunity' : d.type === 'monitor' ? 'Monitor' : '';
-        const showBadge = badgeLabel ? `<span class="cal-badge ${badgeClass}">${badgeLabel}</span>` : '';
-        html += `<div class="cal-item">
-            <div class="cal-date"><div class="day">${day}</div><div class="month">${month}</div></div>
-            <div class="cal-info">
-                <div class="title">${escHtml(d.title)}${showBadge}</div>
-                <div class="meta">${escHtml(d.location || '')}</div>
-            </div>
-        </div>`;
+    var sorted = (dates || []).slice().sort(function(a, b) { return a.date.localeCompare(b.date); });
+    var html = '';
+    sorted.forEach(function(d) {
+        var parts = d.date.split('-');
+        var dt = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+        var day = dt.getDate();
+        var month = dt.toLocaleString('en-CA', { month: 'short' });
+        var badgeClass = d.type === 'urgent' ? 'cb-urgent' : d.type === 'opportunity' ? 'cb-opportunity' : d.type === 'monitor' ? 'cb-monitor' : 'cb-event';
+        var badgeLabel = d.type === 'urgent' ? 'Urgent' : d.type === 'opportunity' ? 'Opportunity' : d.type === 'monitor' ? 'Monitor' : '';
+        var showBadge = badgeLabel ? '<span class="cal-badge ' + badgeClass + '">' + badgeLabel + '</span>' : '';
+        html += '<div class="cal-item">';
+        html += '<div class="cal-date"><div class="day">' + day + '</div><div class="month">' + month + '</div></div>';
+        html += '<div class="cal-info"><div class="title">' + esc(d.title) + showBadge + '</div><div class="meta">' + esc(d.location || '') + '</div></div>';
+        html += '</div>';
     });
     container.innerHTML = html || '<p style="color:#aaa; font-size:11px; padding:8px 0;">No dates added yet.</p>';
 }
 
 function renderArchive() {
-    const container = document.getElementById('archive-entries');
+    var container = document.getElementById('archive-entries');
     if (!container) return;
+    var d = DATA.current;
+    var html = '<div class="archive-entry" style="cursor:default;">';
+    html += '<div><div class="arc-title">Week of ' + esc(d.weekLabel) + '</div>';
+    html += '<div class="arc-meta">' + (d.bills || []).length + ' bills tracked · ' + (d.attention || []).length + ' attention items</div></div>';
+    html += '<span class="arc-badge arc-current">CURRENT</span></div>';
 
-    let html = `<div class="archive-entry" style="cursor:default;">
-        <div>
-            <div class="arc-title">Week of ${escHtml(currentData.weekLabel)}</div>
-            <div class="arc-meta">${(currentData.bills || []).length} bills tracked · ${(currentData.attention || []).length} attention items</div>
-        </div>
-        <span class="arc-badge arc-current">CURRENT</span>
-    </div>`;
-
-    if (archives.length === 0) {
+    if (!DATA.archives || DATA.archives.length === 0) {
         html += '<p style="font-size:11px; color:#aaa; font-style:italic; margin-top:10px;">No previous editions archived yet.</p>';
     } else {
-        [...archives].reverse().forEach((arc, i) => {
-            const realIdx = archives.length - 1 - i;
-            html += `<div class="archive-entry" onclick="previewArchive(${realIdx})">
-                <div>
-                    <div class="arc-title">Week of ${escHtml(arc.weekLabel)}</div>
-                    <div class="arc-meta">${(arc.bills || []).length} bills tracked · ${(arc.attention || []).length} attention items</div>
-                </div>
-                <span class="arc-badge arc-past">ARCHIVED</span>
-            </div>`;
+        var arcs = DATA.archives.slice().reverse();
+        arcs.forEach(function(arc, i) {
+            var realIdx = DATA.archives.length - 1 - i;
+            html += '<div class="archive-entry" onclick="previewArchive(' + realIdx + ')">';
+            html += '<div><div class="arc-title">Week of ' + esc(arc.weekLabel) + '</div>';
+            html += '<div class="arc-meta">' + (arc.bills || []).length + ' bills tracked · ' + (arc.attention || []).length + ' attention items</div></div>';
+            html += '<span class="arc-badge arc-past">ARCHIVED</span></div>';
         });
     }
-
     container.innerHTML = html;
 }
 
 function previewArchive(idx) {
-    const arc = archives[idx];
+    var arc = DATA.archives[idx];
     if (!arc) return;
-    const overlay = document.createElement('div');
+    var overlay = document.createElement('div');
     overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:1000;display:flex;align-items:center;justify-content:center;';
-    const topItems = (arc.attention || []).filter(a => a.type === 'urgent').slice(0, 5).map(a => `🔴 ${a.title}`).join('\n');
-    const billList = (arc.bills || []).slice(0, 6).map(b => `• ${b.name} (${b.bill}) — ${b.stage}`).join('\n');
-    overlay.innerHTML = `<div style="background:white;border-radius:12px;padding:24px;max-width:520px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.2);">
-        <h3 style="color:#4B286D;margin-bottom:12px;">Archived Edition — Week of ${escHtml(arc.weekLabel)}</h3>
-        <div style="font-size:11px;color:#555;background:#f9f5ff;padding:12px;border-radius:8px;max-height:320px;overflow-y:auto;white-space:pre-wrap;line-height:1.7;">${escHtml('URGENT ITEMS:\n' + (topItems || 'None') + '\n\nBILLS TRACKED:\n' + (billList || 'None') + '\n\nNOTES:\n' + (arc.notes || 'None'))}</div>
-        <button onclick="this.closest('div').parentElement.remove()" style="margin-top:14px;background:#4B286D;color:white;border:none;border-radius:8px;padding:8px 20px;cursor:pointer;font-weight:700;">Close</button>
-    </div>`;
+    var topItems = (arc.attention || []).filter(function(a) { return a.type === 'urgent'; }).slice(0, 5).map(function(a) { return '🔴 ' + a.title; }).join('\n');
+    var billList = (arc.bills || []).slice(0, 8).map(function(b) { return '• ' + b.name + ' (' + b.bill + ') — ' + b.stage; }).join('\n');
+    overlay.innerHTML = '<div style="background:white;border-radius:12px;padding:24px;max-width:520px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.2);">' +
+        '<h3 style="color:#4B286D;margin-bottom:12px;">Archived Edition — Week of ' + esc(arc.weekLabel) + '</h3>' +
+        '<pre style="font-size:11px;color:#555;white-space:pre-wrap;background:#f9f5ff;padding:12px;border-radius:8px;max-height:320px;overflow-y:auto;line-height:1.7;">' + esc('URGENT ITEMS:\n' + (topItems || 'None') + '\n\nBILLS TRACKED:\n' + (billList || 'None') + '\n\nNOTES:\n' + (arc.notes || 'None')) + '</pre>' +
+        '<button onclick="this.closest(\'div\').parentElement.remove()" style="margin-top:14px;background:#4B286D;color:white;border:none;border-radius:8px;padding:8px 20px;cursor:pointer;font-weight:700;">Close</button>' +
+        '</div>';
     document.body.appendChild(overlay);
 }
 
 // =====================
-// ENTRY FORM
+// DATA ENTRY FORM
 // =====================
 function populateEntryForm() {
-    const s = currentData.scorecards;
-    const set = (id, val) => { const el = document.getElementById(id); if(el) el.value = val ?? 0; };
-    document.getElementById('entry-week-date').value = currentData.weekDate || '2026-04-17';
-    set('e-fed-total', s.fed.total); set('e-fed-adv', s.fed.adv); set('e-fed-cmte', s.fed.cmte);
-    set('e-fed-early', s.fed.early); set('e-fed-high', s.fed.high); set('e-fed-med', s.fed.med);
-    set('e-bc-total', s.bc.total); set('e-bc-adv', s.bc.adv); set('e-bc-cmte', s.bc.cmte);
-    set('e-ab-total', s.ab.total); set('e-ab-adv', s.ab.adv); set('e-ab-cmte', s.ab.cmte);
-    set('e-on-total', s.on.total); set('e-on-adv', s.on.adv); set('e-on-cmte', s.on.cmte);
-    set('e-qc-total', s.qc.total); set('e-qc-adv', s.qc.adv); set('e-qc-cmte', s.qc.cmte);
-    document.getElementById('e-notes').value = currentData.notes || '';
+    var d = DATA.current;
+    var s = d.scorecards;
+    document.getElementById('entry-week-date').value = d.weekDate || '';
+    function setVal(id, val) { var el = document.getElementById(id); if(el) el.value = (val !== undefined && val !== null) ? val : 0; }
+    setVal('e-fed-total', s.fed.total); setVal('e-fed-adv', s.fed.adv); setVal('e-fed-cmte', s.fed.cmte);
+    setVal('e-fed-early', s.fed.early); setVal('e-fed-high', s.fed.high); setVal('e-fed-med', s.fed.med);
+    setVal('e-bc-total', s.bc.total); setVal('e-bc-adv', s.bc.adv); setVal('e-bc-cmte', s.bc.cmte);
+    setVal('e-ab-total', s.ab.total); setVal('e-ab-adv', s.ab.adv); setVal('e-ab-cmte', s.ab.cmte);
+    setVal('e-on-total', s.on.total); setVal('e-on-adv', s.on.adv); setVal('e-on-cmte', s.on.cmte);
+    setVal('e-qc-total', s.qc.total); setVal('e-qc-adv', s.qc.adv); setVal('e-qc-cmte', s.qc.cmte);
+    document.getElementById('e-notes').value = d.notes || '';
 
-    document.getElementById('attn-rows').innerHTML = '';
-    (currentData.attention || []).forEach(item => addAttnRow(item));
-    if (!currentData.attention || currentData.attention.length === 0) addAttnRow();
+    document.getElementById('attn-items-container').innerHTML = '';
+    (d.attention || []).forEach(function(item) { addAttnItem(item); });
+    if (!d.attention || d.attention.length === 0) addAttnItem();
 
-    document.getElementById('bill-rows').innerHTML = '';
-    (currentData.bills || []).forEach(b => addBillRow(b));
-    if (!currentData.bills || currentData.bills.length === 0) addBillRow();
+    document.getElementById('bill-items-container').innerHTML = '';
+    (d.bills || []).forEach(function(b) { addBillItem(b); });
+    if (!d.bills || d.bills.length === 0) addBillItem();
 
-    document.getElementById('e-bill-nextsteps').value = (currentData.bills || []).map(b => b.next || '').join('\n');
-
-    document.getElementById('date-rows').innerHTML = '';
-    (currentData.dates || []).forEach(d => addDateRow(d));
-    if (!currentData.dates || currentData.dates.length === 0) addDateRow();
+    document.getElementById('date-items-container').innerHTML = '';
+    (d.dates || []).forEach(function(dt) { addDateItem(dt); });
+    if (!d.dates || d.dates.length === 0) addDateItem();
 }
 
-function addAttnRow(item) {
+function addAttnItem(item) {
     item = item || {};
-    const row = document.createElement('div');
-    row.className = 'attn-row';
-    row.innerHTML = `
-        <select>
-            <option value="federal" ${item.region==='federal'?'selected':''}>Federal</option>
-            <option value="bc" ${item.region==='bc'?'selected':''}>BC</option>
-            <option value="ab" ${item.region==='ab'?'selected':''}>AB</option>
-            <option value="on" ${item.region==='on'?'selected':''}>ON</option>
-            <option value="qc" ${item.region==='qc'?'selected':''}>QC</option>
-        </select>
-        <select>
-            <option value="urgent" ${item.type==='urgent'?'selected':''}>🔴 Urgent</option>
-            <option value="monitor" ${item.type==='monitor'?'selected':''}>🟡 Monitor</option>
-            <option value="opportunity" ${item.type==='opportunity'?'selected':''}>🟢 Opportunity</option>
-        </select>
-        <textarea placeholder="Paste description freely — context from the email, notes, etc.">${escHtml(item.text || '')}</textarea>
-        <input type="text" placeholder="Short title" value="${escHtml(item.title || '')}">
-        <button class="remove-btn" onclick="this.parentElement.remove()">×</button>
-    `;
-    document.getElementById('attn-rows').appendChild(row);
+    var div = document.createElement('div');
+    div.className = 'item-entry';
+    div.innerHTML =
+        '<div class="item-entry-header"><span>Attention Item</span><button class="remove-btn" onclick="this.closest(\'.item-entry\').remove()">✕ Remove</button></div>' +
+        '<div class="item-entry-grid">' +
+            '<div><small class="entry-label">Region</small><select>' +
+                '<option value="federal"' + (item.region==='federal'?' selected':'') + '>Federal</option>' +
+                '<option value="bc"' + (item.region==='bc'?' selected':'') + '>BC</option>' +
+                '<option value="ab"' + (item.region==='ab'?' selected':'') + '>AB</option>' +
+                '<option value="on"' + (item.region==='on'?' selected':'') + '>ON</option>' +
+                '<option value="qc"' + (item.region==='qc'?' selected':'') + '>QC</option>' +
+            '</select></div>' +
+            '<div><small class="entry-label">Type</small><select>' +
+                '<option value="urgent"' + (item.type==='urgent'?' selected':'') + '>🔴 Urgent</option>' +
+                '<option value="monitor"' + (item.type==='monitor'?' selected':'') + '>🟡 Monitor</option>' +
+                '<option value="opportunity"' + (item.type==='opportunity'?' selected':'') + '>🟢 Opportunity</option>' +
+            '</select></div>' +
+            '<div><small class="entry-label">Short Title</small><input type="text" placeholder="Short title" value="' + esc(item.title || '') + '"></div>' +
+        '</div>' +
+        '<div class="item-entry-grid2">' +
+            '<div><small class="entry-label">Description (paste freely)</small><textarea placeholder="Paste description from the email...">' + esc(item.text || '') + '</textarea></div>' +
+            '<div><small class="entry-label">URL (optional — for "Read more..." link)</small><input type="url" placeholder="https://..." value="' + esc(item.url || '') + '" style="margin-top:0;"></div>' +
+        '</div>';
+    document.getElementById('attn-items-container').appendChild(div);
 }
 
-function addBillRow(b) {
+function addBillItem(b) {
     b = b || {};
-    const row = document.createElement('div');
-    row.className = 'bill-row';
-    row.innerHTML = `
-        <input type="text" placeholder="Bill S-5" value="${escHtml(b.name || '')}">
-        <select>
-            <option value="Federal" ${b.bill==='Federal'||!b.bill?'selected':''}>Federal</option>
-            <option value="BC" ${b.bill==='BC'?'selected':''}>BC</option>
-            <option value="AB" ${b.bill==='AB'?'selected':''}>AB</option>
-            <option value="ON" ${b.bill==='ON'?'selected':''}>ON</option>
-            <option value="QC" ${b.bill==='QC'?'selected':''}>QC</option>
-        </select>
-        <input type="text" placeholder="Subject / description" value="${escHtml(b.subject || '')}">
-        <select>
-            <option value="advanced" ${b.stage==='advanced'?'selected':''}>Advanced</option>
-            <option value="committee" ${b.stage==='committee'?'selected':''}>Committee</option>
-            <option value="early" ${b.stage==='early'||!b.stage?'selected':''}>Early Stage</option>
-        </select>
-        <select>
-            <option value="high" ${b.impact==='high'?'selected':''}>High</option>
-            <option value="med" ${b.impact==='med'||!b.impact?'selected':''}>Medium</option>
-            <option value="low" ${b.impact==='low'?'selected':''}>Low</option>
-        </select>
-        <button class="remove-btn" onclick="this.parentElement.remove()">×</button>
-    `;
-    document.getElementById('bill-rows').appendChild(row);
+    var div = document.createElement('div');
+    div.className = 'item-entry';
+    div.innerHTML =
+        '<div class="item-entry-header"><span>Bill / Legislation</span><button class="remove-btn" onclick="this.closest(\'.item-entry\').remove()">✕ Remove</button></div>' +
+        '<div class="bill-entry-grid">' +
+            '<div><small class="entry-label">Bill Name</small><input type="text" placeholder="Bill S-5" value="' + esc(b.name || '') + '"></div>' +
+            '<div><small class="entry-label">Jurisdiction</small><select>' +
+                '<option value="Federal"' + (b.bill==='Federal'||!b.bill?' selected':'') + '>Federal</option>' +
+                '<option value="BC"' + (b.bill==='BC'?' selected':'') + '>BC</option>' +
+                '<option value="AB"' + (b.bill==='AB'?' selected':'') + '>AB</option>' +
+                '<option value="ON"' + (b.bill==='ON'?' selected':'') + '>ON</option>' +
+                '<option value="QC"' + (b.bill==='QC'?' selected':'') + '>QC</option>' +
+            '</select></div>' +
+            '<div><small class="entry-label">Subject / Description</small><input type="text" placeholder="Subject..." value="' + esc(b.subject || '') + '"></div>' +
+            '<div><small class="entry-label">Stage</small><select>' +
+                '<option value="advanced"' + (b.stage==='advanced'?' selected':'') + '>Advanced</option>' +
+                '<option value="committee"' + (b.stage==='committee'?' selected':'') + '>Committee</option>' +
+                '<option value="early"' + (b.stage==='early'||!b.stage?' selected':'') + '>Early Stage</option>' +
+            '</select></div>' +
+            '<div><small class="entry-label">Impact</small><select>' +
+                '<option value="high"' + (b.impact==='high'?' selected':'') + '>High</option>' +
+                '<option value="med"' + (b.impact==='med'||!b.impact?' selected':'') + '>Medium</option>' +
+                '<option value="low"' + (b.impact==='low'?' selected':'') + '>Low</option>' +
+            '</select></div>' +
+        '</div>' +
+        '<div class="item-entry-grid2">' +
+            '<div><small class="entry-label">Next Step</small><input type="text" placeholder="Next step or action..." value="' + esc(b.next || '') + '"></div>' +
+            '<div><small class="entry-label">URL (optional — for "Read more..." link)</small><input type="url" placeholder="https://..." value="' + esc(b.url || '') + '"></div>' +
+        '</div>';
+    document.getElementById('bill-items-container').appendChild(div);
 }
 
-function addDateRow(d) {
+function addDateItem(d) {
     d = d || {};
-    const row = document.createElement('div');
-    row.className = 'date-row';
-    row.innerHTML = `
-        <input type="date" value="${d.date || ''}">
-        <input type="text" placeholder="Event or deadline title" value="${escHtml(d.title || '')}">
-        <input type="text" placeholder="Location / context" value="${escHtml(d.location || '')}">
-        <select>
-            <option value="event" ${d.type==='event'||!d.type?'selected':''}>Event</option>
-            <option value="urgent" ${d.type==='urgent'?'selected':''}>🔴 Urgent</option>
-            <option value="opportunity" ${d.type==='opportunity'?'selected':''}>🟢 Opportunity</option>
-            <option value="monitor" ${d.type==='monitor'?'selected':''}>🟡 Monitor</option>
-        </select>
-        <button class="remove-btn" onclick="this.parentElement.remove()">×</button>
-    `;
-    document.getElementById('date-rows').appendChild(row);
+    var div = document.createElement('div');
+    div.className = 'item-entry';
+    div.innerHTML =
+        '<div class="item-entry-header"><span>Key Date</span><button class="remove-btn" onclick="this.closest(\'.item-entry\').remove()">✕ Remove</button></div>' +
+        '<div class="date-entry-grid">' +
+            '<div><small class="entry-label">Date</small><input type="date" value="' + esc(d.date || '') + '"></div>' +
+            '<div><small class="entry-label">Title</small><input type="text" placeholder="Event or deadline title" value="' + esc(d.title || '') + '"></div>' +
+            '<div><small class="entry-label">Location / Context</small><input type="text" placeholder="Ottawa, ON" value="' + esc(d.location || '') + '"></div>' +
+            '<div><small class="entry-label">Type</small><select>' +
+                '<option value="event"' + (d.type==='event'||!d.type?' selected':'') + '>Event</option>' +
+                '<option value="urgent"' + (d.type==='urgent'?' selected':'') + '>🔴 Urgent</option>' +
+                '<option value="opportunity"' + (d.type==='opportunity'?' selected':'') + '>🟢 Opportunity</option>' +
+                '<option value="monitor"' + (d.type==='monitor'?' selected':'') + '>🟡 Monitor</option>' +
+            '</select></div>' +
+        '</div>';
+    document.getElementById('date-items-container').appendChild(div);
 }
 
 // =====================
-// COLLECT FORM DATA
+// COLLECT & SAVE
 // =====================
 function collectFormData() {
-    const dateVal = document.getElementById('entry-week-date').value;
-    const dt = new Date(dateVal + 'T00:00:00');
-    const weekLabel = dt.toLocaleDateString('en-CA', { month: 'long', day: 'numeric', year: 'numeric' });
-    const getNum = id => parseInt(document.getElementById(id)?.value || 0, 10) || 0;
+    var dateVal = document.getElementById('entry-week-date').value;
+    var parts = dateVal.split('-');
+    var dt = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    var weekLabel = dt.toLocaleDateString('en-CA', { month: 'long', day: 'numeric', year: 'numeric' });
 
-    const scorecards = {
+    function getNum(id) { return parseInt(document.getElementById(id).value || 0, 10) || 0; }
+
+    var scorecards = {
         fed: { total: getNum('e-fed-total'), adv: getNum('e-fed-adv'), cmte: getNum('e-fed-cmte'), early: getNum('e-fed-early'), high: getNum('e-fed-high'), med: getNum('e-fed-med'), low: 0 },
         bc:  { total: getNum('e-bc-total'), adv: getNum('e-bc-adv'), cmte: getNum('e-bc-cmte'), early: 0 },
         ab:  { total: getNum('e-ab-total'), adv: getNum('e-ab-adv'), cmte: getNum('e-ab-cmte'), early: 0 },
@@ -1092,106 +989,79 @@ function collectFormData() {
         qc:  { total: getNum('e-qc-total'), adv: getNum('e-qc-adv'), cmte: getNum('e-qc-cmte'), early: 0 }
     };
 
-    const attnRows = document.querySelectorAll('#attn-rows .attn-row');
-    const attention = [];
-    attnRows.forEach(row => {
-        const selects = row.querySelectorAll('select');
-        const inputs = row.querySelectorAll('input, textarea');
-        const region = selects[0]?.value || 'federal';
-        const type = selects[1]?.value || 'monitor';
-        const text = inputs[0]?.value?.trim() || '';
-        const title = inputs[1]?.value?.trim() || '';
-        if (title || text) attention.push({ region, type, title, text });
+    var attention = [];
+    document.querySelectorAll('#attn-items-container .item-entry').forEach(function(div) {
+        var selects = div.querySelectorAll('select');
+        var inputs = div.querySelectorAll('input[type="text"], input[type="url"]');
+        var textarea = div.querySelector('textarea');
+        var region = selects[0] ? selects[0].value : 'federal';
+        var type = selects[1] ? selects[1].value : 'monitor';
+        var title = inputs[0] ? inputs[0].value.trim() : '';
+        var text = textarea ? textarea.value.trim() : '';
+        var url = inputs[1] ? inputs[1].value.trim() : '';
+        if (title || text) attention.push({ region: region, type: type, title: title, text: text, url: url });
     });
 
-    const billRows = document.querySelectorAll('#bill-rows .bill-row');
-    const nextSteps = (document.getElementById('e-bill-nextsteps')?.value || '').split('\n');
-    const bills = [];
-    billRows.forEach((row, i) => {
-        const inputs = row.querySelectorAll('input');
-        const selects = row.querySelectorAll('select');
-        const name = inputs[0]?.value?.trim() || '';
-        const bill = selects[0]?.value || 'Federal';
-        const subject = inputs[1]?.value?.trim() || '';
-        const stage = selects[1]?.value || 'early';
-        const impact = selects[2]?.value || 'med';
-        const next = (nextSteps[i] || '').trim();
-        if (name || subject) bills.push({ name, bill, subject, stage, impact, next });
+    var bills = [];
+    document.querySelectorAll('#bill-items-container .item-entry').forEach(function(div) {
+        var selects = div.querySelectorAll('select');
+        var inputs = div.querySelectorAll('input[type="text"], input[type="url"]');
+        var name = inputs[0] ? inputs[0].value.trim() : '';
+        var bill = selects[0] ? selects[0].value : 'Federal';
+        var subject = inputs[1] ? inputs[1].value.trim() : '';
+        var stage = selects[1] ? selects[1].value : 'early';
+        var impact = selects[2] ? selects[2].value : 'med';
+        var next = inputs[2] ? inputs[2].value.trim() : '';
+        var url = inputs[3] ? inputs[3].value.trim() : '';
+        if (name || subject) bills.push({ name: name, bill: bill, subject: subject, stage: stage, impact: impact, next: next, url: url });
     });
 
-    const dateRows = document.querySelectorAll('#date-rows .date-row');
-    const dates = [];
-    dateRows.forEach(row => {
-        const inputs = row.querySelectorAll('input');
-        const selects = row.querySelectorAll('select');
-        const date = inputs[0]?.value || '';
-        const title = inputs[1]?.value?.trim() || '';
-        const location = inputs[2]?.value?.trim() || '';
-        const type = selects[0]?.value || 'event';
-        if (date && title) dates.push({ date, title, location, type });
+    var dates = [];
+    document.querySelectorAll('#date-items-container .item-entry').forEach(function(div) {
+        var selects = div.querySelectorAll('select');
+        var inputs = div.querySelectorAll('input');
+        var date = inputs[0] ? inputs[0].value : '';
+        var title = inputs[1] ? inputs[1].value.trim() : '';
+        var location = inputs[2] ? inputs[2].value.trim() : '';
+        var type = selects[0] ? selects[0].value : 'event';
+        if (date && title) dates.push({ date: date, title: title, location: location, type: type });
     });
 
-    const notes = document.getElementById('e-notes')?.value || '';
-    return { weekLabel, weekDate: dateVal, scorecards, attention, bills, dates, notes };
+    var notes = document.getElementById('e-notes').value || '';
+    return { weekLabel: weekLabel, weekDate: dateVal, scorecards: scorecards, attention: attention, bills: bills, dates: dates, notes: notes };
 }
 
-// =====================
-// SAVE / PUBLISH
-// =====================
-async function saveAndPublish() {
-    const status = document.getElementById('save-status');
-    status.textContent = 'Saving...';
-    status.className = 'save-status';
-    try {
-        if (currentData.weekLabel) {
-            const existsInArchive = archives.some(a => a.weekLabel === currentData.weekLabel);
-            if (!existsInArchive) {
-                archives.push(JSON.parse(JSON.stringify(currentData)));
-                if (archives.length > 20) archives = archives.slice(-20);
-                await window.db.set('telus_gov_dashboard_archives', { list: archives });
-            }
+function saveAndPublish() {
+    var status = document.getElementById('save-status');
+    var newData = collectFormData();
+
+    if (DATA.current.weekLabel && DATA.current.weekLabel !== newData.weekLabel) {
+        var alreadyArchived = DATA.archives.some(function(a) { return a.weekLabel === DATA.current.weekLabel; });
+        if (!alreadyArchived) {
+            DATA.archives.push(JSON.parse(JSON.stringify(DATA.current)));
+            if (DATA.archives.length > 20) DATA.archives = DATA.archives.slice(-20);
         }
-        const newData = collectFormData();
-        currentData = newData;
-        await window.db.set('telus_gov_dashboard_current', currentData);
-        renderAll();
-        status.textContent = '✅ Published successfully!';
-        status.className = 'save-status success';
-        setTimeout(() => { status.textContent = ''; }, 4000);
-    } catch(e) {
-        status.textContent = '❌ Error saving: ' + e.message;
-        status.className = 'save-status error';
     }
-}
 
-async function saveDraft() {
-    const status = document.getElementById('save-status');
-    status.textContent = 'Saving draft...';
-    status.className = 'save-status';
-    try {
-        const draft = collectFormData();
-        await window.db.set('telus_gov_dashboard_draft', draft);
-        status.textContent = '✅ Draft saved (not published)';
-        status.className = 'save-status success';
-        setTimeout(() => { status.textContent = ''; }, 3000);
-    } catch(e) {
-        status.textContent = '❌ Error: ' + e.message;
-        status.className = 'save-status error';
-    }
+    DATA.current = newData;
+    renderAll();
+    status.textContent = '✅ Dashboard updated successfully!';
+    setTimeout(function() { status.textContent = ''; }, 4000);
+    showTab('overview', document.querySelector('.tab-btn'));
 }
 
 function resetToCurrentData() {
     populateEntryForm();
-    document.getElementById('save-status').textContent = 'Form reset to current published data.';
-    setTimeout(() => { document.getElementById('save-status').textContent = ''; }, 3000);
+    document.getElementById('save-status').textContent = 'Form reset to current data.';
+    setTimeout(function() { document.getElementById('save-status').textContent = ''; }, 3000);
 }
 
 // =====================
 // TABS
 // =====================
 function showTab(tabName, btn) {
-    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(function(v) { v.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
     document.getElementById('tab-' + tabName).classList.add('active');
     if (btn) btn.classList.add('active');
 }
@@ -1199,11 +1069,14 @@ function showTab(tabName, btn) {
 // =====================
 // UTILS
 // =====================
-function escHtml(str) {
+function esc(str) {
     if (!str) return '';
     return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// =====================
+// START
+// =====================
 init();
 </script>
 
